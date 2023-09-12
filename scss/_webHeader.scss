@@ -1,0 +1,176 @@
+.webHeader{
+  position: relative; z-index: 920;
+  padding: 15px 0 10px 20px;
+
+  &::after{
+    // 作為 fixed 時的底色
+    content: '';
+    position: fixed; top: 0; left: 0;right: 0; z-index: 90;
+    background-color: $primary; height: 0;
+    transition: .4s;
+  }
+
+  h1{
+    // position: absolute; left: 20px; top: 16px; 
+    position: relative; z-index: 99;
+    margin: 0; padding: 2px 0 0 64px; min-height: 60px;
+    font-size: 1em; color: $primary;
+    em {
+      display: block;
+      font-size: .93em;font-style: normal;
+    }
+    &::before{
+      content: ''; position: absolute; left: 0; top: 0;
+      background: url(../images/logo.png) no-repeat center center;
+      background-size: 100% auto;
+      width: 56px; height: 56px; border-radius: 50%;
+    }
+    a{text-decoration: none; color: $primary; display: block;}
+  }
+
+  // 查詢與側欄開關 button
+  .sidebarCtrl, .searchCtrl {
+    position: absolute; top: 24px; z-index: 99;
+  }
+  .sidebarCtrl{ 
+    right: 70px;
+    &.closeIt {right: $sideBarWidth;}
+  }
+  .searchCtrl { right: 20px; }
+
+
+  // 首頁版頭
+  // --------------------------------------------------------------- //
+  &.mp{
+    padding: 0;
+    h1{
+      position: absolute; left: 20px; top: 16px; z-index: 99;
+      color:$white;
+      a{color:$white;}
+    }
+    .sidebarCtrl, .searchCtrl {
+      --tinge : #{$white};
+    }
+  }
+
+
+  // 固定版頭
+  // --------------------------------------------------------------- //
+  &.fixed{
+    // z-index: 920;
+    h1, .sidebarCtrl, .searchCtrl { position: fixed; }
+    .sidebarCtrl, .searchCtrl{--tinge : #{$white};}
+    h1{ color: $white;
+      a{color: $white;}
+    }
+
+    &::after{
+      height: 88px;
+      box-shadow: rgb(0 0 0 / .5) 0 3px 12px;
+    }
+  }
+  
+
+  @media screen and (min-width: $wwNormal){
+
+    margin: 0 auto; padding:8px 3% 22px;
+    width: 100%;
+
+    h1{
+      float: left;
+      position: relative;top: auto;bottom: auto;left: auto;
+      width: 6.6em; line-height: 1.35;
+      margin: 10px 0 0; padding: 5px 0 0 90px; 
+      white-space: nowrap;
+
+      font-size: 1.67em; font-weight: 500;letter-spacing: .1em;
+      color: $primary;
+
+      width: auto;min-height: 80px;
+      font-size: 1.5em; text-align: left;
+      &::before {
+        position: absolute;left: 0;top: 0;
+        width: 80px;height: 80px;
+      }
+    }
+
+    // 固定版頭
+    // --------------------------------------------------------------- //
+      &.fixed {
+      position: fixed; top: 0; background-color: $white;
+      box-shadow: rgb(0 0 0 / .25) 0 0 16px;
+
+      h1{ position: relative; color: $primary;
+        a{color: $primary;}
+      }
+      &::after{display: none;}
+    }
+
+
+    // --------------------------------------------------------------- //
+    // --------------------------------------------------------------- //
+
+
+    // 首頁的版頭
+    // --------------------------------------------------------------- //
+    &.mp{
+      padding: 0 0 30px;
+      h1{
+        float: none;
+        position: absolute; top: calc(42vw - 90px);  left:calc(50% - 3.3em);
+        text-align: center;padding: 0; margin: 0;
+        color: $primary;
+        a{color: $primary;}
+        &::before{
+          position: static; display: block; margin: 0 auto 20px;
+          width: 160px; height: 160px;
+        }
+      }
+
+      // 首頁固定版頭
+      &.fixed{
+        position: fixed; left: 0; top: 0; right: 0;  
+        // z-index: 99;
+        padding:8px 3% 22px;
+  
+        &::after{display: none;}
+  
+        .bigBanner{ position: absolute; height: 0;width: 100vw; overflow: hidden; }
+  
+        animation: fixHeaderShow 1s  1;
+  
+        h1 {
+          float: left;
+          position: relative;top: 10px;bottom: auto;left: auto;
+          width: auto; min-height: 80px;
+          padding: 5px 0 0 90px; margin:0;
+          font-size: 1.5em; text-align: left;
+          &::before {
+            position: absolute;left: 0;top: 0;
+            width: 80px;height: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+
+    h1 {margin-left: calc(50vw - $wwMaximum*.5); }
+
+    &.mp{
+      h1{ top: calc($wwMaximum*.42 - 90px); }
+      &.fixed h1{ margin-left: calc(50vw - $wwMaximum*.5); }
+    }
+
+
+
+  }
+
+}
+
+@keyframes fixHeaderShow {
+  0%{ transform:  translateY(-100%);}
+  100%{ transform:  translateY(0);}
+}
+

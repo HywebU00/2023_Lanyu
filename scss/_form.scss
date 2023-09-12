@@ -1,0 +1,17 @@
+// 表單元件基本樣式 
+// --------------------------------------------------------------- //
+form {margin: 0;padding: 0;}
+
+label { display: inline-block; font-weight: normal; cursor: pointer;}
+
+input, textarea, select, button {
+  font-size: inherit; font-family: inherit;
+  box-sizing: border-box; outline: none;
+  &:focus{ outline: none;}
+}
+
+button, select, 
+input[type="button"], input[type="submit"], input[type="reset"], 
+input[type="color"], input[type="file"] {
+  cursor: pointer;
+}

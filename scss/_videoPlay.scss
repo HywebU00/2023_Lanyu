@@ -1,0 +1,44 @@
+// YT 影片播放頁
+.videoPlay{
+  @extend %primSecWidth; padding: 0 0 30px;
+  // background-color: #eee;
+  max-width: 880px;
+  box-shadow: $borderColorDark 0 0 0 1px;
+  border-radius: 0 0 16px 16px;
+  iframe{
+    display: block; margin: 0 auto;
+    width: 100%; height: $mobileWidth*.5625;
+    max-width: 880px; max-height: 495px;
+  }
+
+  .videoInfo{
+    margin: 30px 15px 15px; padding: 0;
+    .title{ font-size: 1.5em; margin: 0;}
+    dl{
+      margin: 20px 0; padding: 12px 0;
+      line-height: 1.6;
+      border-top: 1px solid $borderColor;
+      border-bottom: 1px solid $borderColor;
+      &>div{
+        display: flex;
+        &+div{margin-top: .5em;}
+      }
+      dt, dd{ padding: 0; text-indent: 0; margin: 0; }
+      dt{ flex: 0 1 4.5em; white-space: nowrap; color:$fontColorLight;
+        &::after{ content: '：';}
+      }
+      dd{ flex: 1 1 auto; margin-left: 1em;}
+    }
+
+    article{
+      line-height: 1.8;
+      p{
+        margin:1em 0 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin-bottom: 90px;
+  }
+}

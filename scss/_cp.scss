@@ -1,0 +1,206 @@
+.cpArticle {
+  @extend %primSecWidth; padding: 0 0 60px;
+
+  line-height: 1.8;
+  font-size: 1.15em;
+
+  blockquote{
+    position: relative;
+    background: #eef;
+    padding: 30px; margin:1em 0 1em 1.5em;
+
+    &::before{
+      position: absolute; font-size: 8em; left: 0;top: -.5em;
+      content: '“';
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+
+  a{color: $linkColor;
+    &:hover, &:focus{text-decoration: none;}
+    &:focus{outline: 1px solid $linkColor;}
+  }
+
+  p{ margin: 1em 0 1.5em;}
+
+  // 內文標題
+  h3, h4, h5, h6{
+    margin: 2.5rem 0 .5rem;font-weight: normal;
+    & + p{margin-top: .5rem;}
+  }
+  h3{ font-size: 1.35em; }
+  h4{ font-size: 1.25em;}
+  h5{ font-size: 1.15em;}
+  h6{ font-size: 1rem;}
+
+  figure{
+    border: 1px solid $borderColor; padding: 6px;
+    display: block; margin: 0 auto 2em; max-width: 1024px;
+    img{display: block; width: 100%; max-height: 65vh; object-fit: contain;}
+    figcaption{
+      display: block; width: 100%; margin: .5em 0 0;
+      line-height: 1.5; font-size: .82em;
+    }
+  }
+
+  // 文章內表格樣式
+  table{
+    border-collapse: collapse; width: 100%; margin: 0 auto;
+    border: 3px solid $borderColor;
+    line-height: 1.5;
+
+    th, td{
+      padding:.5em .6em;
+      border: 1px solid $borderColor;
+    }
+    tr:first-child{
+      th{ background-color: $grayLight; border-bottom-color: $borderColor;}
+    }
+    th:first-child{background-color:$grayLight; }
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    figure{
+      img{ max-height: none;}
+      &.float{
+        float: left;
+        width: 50%; margin: 1em 1.2em .5em 0;
+      }
+    }
+  }
+
+}
+
+
+// --------------------------------------------------------------- //
+// 主題圖，由使用者後端上稿
+.themePic{
+  width: 100%; margin: 0 auto 30px;
+  img{
+    display: block; margin: 0;
+    width: 100%; height: auto;
+  }
+}
+
+
+// --------------------------------------------------------------- //
+// 參與團隊（特定頁面樣式）
+.teamList{
+  .team{
+    display: flex; align-items: center;
+    padding: 25px 5px;
+    border-bottom: 1px solid $borderColor;
+    .teamLogo{
+      flex: 0 0 25%; margin: 0 4% 0 0;
+      img{
+        display: block; margin: 0 auto; 
+        width: 94%; max-width: 200px; height: auto;
+      }
+    }
+    p{
+      flex: 1 1 auto;
+      margin: 0; line-height: 1.5;font-size: 1.45em;
+      a{
+        display: block;
+        text-decoration: none; 
+        color: $fontColor;
+        &:hover, &:focus{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .team{
+      .teamLogo{
+        flex-basis: 30%;
+      }
+    }
+
+  }
+}
+
+
+
+
+// --------------------------------------------------------------- //
+// 附件下載, 相關連結, 相關圖檔 
+.attachment, .seeAlso{
+  @extend %primSecWidth; margin-bottom: 60px; margin-top: 60px;
+    
+  h3{font-size: 1.2em; margin: 0 0 .5em; line-height: 1.1; font-weight: normal;}
+  ul, ol{margin: 0; padding: 0; list-style: none; line-height: 1.8;}
+  a{text-decoration: none; }
+}
+
+
+// --------------------------------------------------------------- //
+// 附件下載 
+.attachment{
+  &>ul{
+    border-top: 3px solid $borderColor;
+    border-bottom: 2px solid $borderColor;
+    &>li{
+      margin: 0; padding: 0 2px;
+      border-bottom: 1px solid $borderColor;
+      display: flex; flex-flow: row wrap;
+      align-items: center; justify-content: flex-end;
+    }
+  }
+  .fileName{ margin: 6px 0 3px; flex: 1 1 auto; }
+
+  .downloadFiles{
+    flex: 0 1 auto;
+    li{margin:0 0 0 10px; padding:3px 0;}
+    a{
+      padding: 4px;display: block; color: $fontColor; font-size: .9rem;
+      &:hover, &:focus {
+        outline: none;
+        .fileSize{text-decoration: underline;}
+      }
+    }
+  }
+
+  .fileType{ display: inline-block; vertical-align: middle;}
+  .fileSize{margin-left: 5px;}
+}
+
+// --------------------------------------------------------------- //
+// 相關連結 
+.seeAlso{
+  &>ol{
+    border-top: 3px solid $borderColor;
+    border-bottom: 3px solid $borderColor;
+  }
+  li{
+    margin: 0; padding: 3px 2px;
+    border-bottom: 1px solid $borderColor;
+    &:last-child{ border: none;}
+    a{
+      position: relative; display: block; padding: .7em 14px .7em;
+      color: $fontColor;
+      transition: .2s;
+      &::before{
+        content: '';
+        position: absolute; left: 0; top: 1.2em; width: 0; height: 0;
+        border-style: solid; 
+        border-width: 8px 0 8px 3px; border-color: $primary;
+        transition:border-left-width .15s;
+      }
+      &:hover, &:focus{
+        padding-left: 24px; padding-right: 4px;
+        outline: none;
+        &::before{
+          border-color: transparent;
+          border-left-color: $primary;
+          border-width: 8px 0 8px 10px; 
+        }
+      }
+      &:focus{
+        box-shadow: $linkColor 0 0 0 1px inset;
+      }
+    }
+  }
+}

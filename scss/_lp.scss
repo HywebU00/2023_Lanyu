@@ -1,0 +1,311 @@
+// 條列頁
+
+// --------------------------------------------------------------- //
+// 項目 條列 ul, li
+.list{
+  @extend %primSecWidth;
+  position: relative;
+  &>ul{
+    list-style: none; margin: 0; padding: 0; line-height: 1.5; 
+    &>li{
+      margin: 0 0 8px; padding: 0;
+      p{ 
+        flex: 1 1 auto;
+        margin:0; font-size: 1.125em;
+      }
+      time{
+        position: relative;
+        flex: 0 0 5.5rem; padding:0 3px; margin:0 12px 0 0;
+        font-size: 1.3em; font-weight: bold;line-height: 1.15;
+        white-space: nowrap; text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        .year{
+          display: block; font-size: .8em; font-weight: normal;
+          // margin-left: 5px;
+        }
+      }
+
+      a{
+        display: flex; align-items: center;
+        position: relative; padding: .5em 5px .2em 0;
+        text-decoration: none; color: $fontColor; 
+        border: 1px solid $borderColorLight;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        transition: .2s;
+        
+        &::before{
+          content: ''; position: absolute;  left: 0; bottom: -1px; height: 2px;
+          width: 5.8rem;
+          background-color: $borderColorDark;
+          transition: .3s;
+        }
+        &:hover, &:focus{ 
+          border-color: $primary;
+          &::before{
+            height: 100%; bottom: 0;
+            background-color: $primary;
+          }
+          time{color: $white; }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding:25px 15px 20px;
+    box-shadow: $borderColor 0 0 16px; border-radius: 12px;
+  }
+
+}
+
+
+// 表格 table 條列 //
+// --------------------------------------------------------------- //
+.list{
+  &.stickyHead {
+    thead{ 
+      position: sticky; top: 120px; z-index: 9;
+      background-color: rgb(240 245 245 );
+      box-shadow: $borderColorDark 0 1px 0;
+      tr{ border-bottom: none;}
+    }
+  }
+  
+  &>table{ 
+    border-collapse: collapse; line-height: 1.6; 
+    width: calc(100% - 8px); margin:4px;
+    border-top: 2px solid $borderColorLight;
+    border-bottom: 2px solid $borderColorLight;
+    caption{
+      font-size: 1.15em; font-weight: normal;
+      padding: 0 0 .4em;
+    }
+
+    thead{
+      tr{border-bottom-color: $borderColorDark;}
+    }
+    tbody tr:last-child{border-bottom: none;}
+
+    tr{ border-bottom: 1px solid $borderColor; }
+    th, td{
+      padding: 15px; position: relative;
+      &::after{
+        content: ''; position: absolute;
+         width: 1px; background: $borderColor; top: 4px; bottom: 4px; left: 0;
+      }
+      &:first-child{
+        &::after{background-color: transparent;}
+      }
+    }
+
+    td{
+      text-align: center;
+      &.aLeft{ text-align: left;}
+      &.aRight{ text-align: right;}
+
+      &.numb{ 
+        text-align: right; width: 4em;
+        &::after{content: '.'; position: static;}
+      }
+      &[data-th="Title"], &[data-th="title"] { text-align: left; font-size: 1.125em; }
+      &>a{
+        color: $fontColor; text-decoration: none; transition: .2s;
+        &:hover, &:focus{
+         text-decoration: underline;color: $fontColor; 
+        }
+      }
+      time{ display: inline-block; white-space: nowrap; }
+
+      // 表格內圖片
+      // .sPhoto{
+      //   display: inline;
+      //   // margin: 0 auto;width: 100%; max-width: 400px;
+      //   img{ 
+      //     display: block;margin: 0 auto;width: 300px;
+      //     transition: .25s;
+      //   }
+      //   a{
+      //     &:hover, &:focus {
+      //       // img{ box-shadow:$white 0 0 0 1px, $primary 0 0 0 4px;}
+      //       // img{ box-shadow:$white 0 0 0 4px inset, $primary 0 0 0 3px inset;}
+      //     }
+      //   }
+      // }
+
+
+      .sPhoto {
+        display: block; position: relative; width: 300px;
+        img{ display: block; width: 100%;}
+        a{
+          &::before{
+            content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+            transition: .3s;
+          }
+          &:hover{
+            &::before{ 
+              z-index: 9;
+              box-shadow: $primary 0 0 0 4px inset,  $white 0 0 0 5px inset;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+
+
+  @media screen and (max-width: calc($wwNormal - 1px)){
+  }
+
+
+  @media screen and (max-width: calc($wwNormal - 1px)){
+    // border: 1px solid $borderColor;
+    &>table{
+      width: 100%; margin: 0;
+      &.rwdTable{
+        border: none;
+        thead{display: none;}
+        tr, th, td{ display: block;}
+        tr{ 
+          position: relative; overflow: hidden;
+          padding: .5em 8px .4em; margin: 0 0 12px;
+          border: 1px solid $borderColor; border-radius: 6px;
+        }
+        tbody tr:last-child{border-bottom: 1px solid $borderColor;}
+        th, td{
+          position: static; padding: 0;margin: 0; text-align: left;
+          border: none;
+          &::after{display: none;}
+        }
+        td{
+          padding:.5em 0; text-align: left;
+          &::before {
+            content: attr(data-th); display: inline-block; margin-right: .5em;
+            font-size: .92em;
+            color: $fontColorLight;
+            background-color: $assistant1; color: $fontInvert;
+            padding: 0 .6em 1px 5px; border-radius: 3px 1em 1em 3px
+          }
+          &.numb{
+            padding-top: 0; padding-bottom: 0; padding-left: 7px;
+            // position: absolute; top: .8em; left: 0;width: 2.4em; text-align: right;
+            display: block; text-align: left; font-weight: normal; width: auto;
+            &::before{ display: none;}
+            &::after{display: inline-block;}
+          }
+          .sPhoto {margin: 10px 0 0; width: 100%;}
+          .downloadFiles{ display: inline-block; vertical-align: top;}
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// --------------------------------------------------------------- //
+// 影音條列
+.videoList{
+  @extend %primSecWidth;
+  ul{ list-style: none; margin: 0 auto; padding: 0;}
+
+  &>ul>li{
+    padding: 0; margin: 0 0 20px;
+    border: none;
+    box-shadow: $borderColor 0 0 0 1px;
+    border-radius:0 0 12px 12px;
+    a{
+      display: block;
+      padding: 0; color: $fontColor;
+      transition: .2s;
+      &:hover, &:focus{
+        dd{
+          text-decoration: underline;
+        }
+        // box-shadow: $borderColorDark 0 0 0 4px;
+      }
+    }
+  }
+  .cover{
+    img{display: block; width: 100%;height: $mobileWidth*.5625;object-fit: cover;}
+    iframe {
+      display: block;margin: 0;
+      width: 100%;height: $mobileWidth*.5625;
+    }
+  }
+  dl{
+    text-align: left; padding: 0 0 12px; margin:16px 12px 0;
+    line-height: 1.7;
+    &>div{
+      border-bottom: 1px solid $borderColorLight;
+      padding: .5em 0 .4em;
+      &:last-child{border-bottom: none;}
+    }
+    dt, dd{
+      text-indent: 0; margin: 0; padding: 0;
+      display: inline-block; vertical-align: top;
+    }
+    dt{
+      color: $fontColorLight;
+      &::after{content: '：';}
+    }
+
+  }
+
+
+  @media screen and (min-width: $wwMedium){
+    // box-shadow: none; padding: 0;
+
+    &>ul>li{
+     display: flex;
+      border-radius: 0 12px 12px 0;
+      .cover{
+        flex: 0 1 50%; margin: 0;
+        background-color: $black;
+        img, iframe{ width: 100%; height: $mobileWidth*0.5*.5625;}
+      }
+
+      &>a{flex: 1 1 50%;  text-decoration: none; }
+
+      dl{
+        margin: 0 12px; text-decoration: none;
+        &>div{
+          display: flex;
+        }
+        dt{
+          flex: 1 0 3em;white-space: nowrap;
+        }
+        dd{
+          flex: 1 1 80%;
+          display: -webkit-box; -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;overflow: hidden;
+        }
+        
+      }
+    
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+
+    &>ul>li{
+      .cover{
+        max-width: 640px;
+        img, iframe{ max-height: 360px;}
+      }
+      dl{
+        margin: 0 20px;
+      }
+    }
+  }
+
+}

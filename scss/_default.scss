@@ -1,0 +1,137 @@
+
+
+
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+
+
+body{
+  position: relative;
+  margin: 0; padding: 0; 
+  font-size: 1.125em; letter-spacing: .06em;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  background-color: $white;color: $fontColor;
+
+  *{ box-sizing: border-box; outline: none;}
+
+  &.noScroll{ overflow-y: hidden;}
+  &.largeFont{font-size: 1.4em;}
+  &.smallFont{ font-size: .82em;}
+  
+  &.largeFont, &.smallFont{
+    .webHeader{font-size: 1.125rem;}
+  }
+
+}
+time{ letter-spacing: 0;}
+
+
+
+
+.main{
+  position: relative;
+  margin: 0 auto; max-width: 1440px;
+
+  &.mp{
+    background:#f1f4f9;
+    @media screen and (min-width: $wwNormal){
+      // padding-right: 360px;
+      padding: 0;
+      position: relative;
+      background:#f1f4f9 url(../images/mpMainBg.png) no-repeat 10px 140px;
+
+      &::after{
+        content: ''; display: block; clear: both;
+      }
+    }
+  }
+}
+
+
+// 行動版側欄
+// --------------------------------------------------------------- //
+.sidebar{
+  position: fixed; z-index: 930;
+  width: $sideBarWidth; 
+  margin-right:$sideBarWidth * (-1);
+  top: 0; bottom: 0; right: 0; overflow: auto;
+  background: $primary; color: $fontInvert;
+  transition: .5s;
+
+  // .menu { display: none;}
+
+  &.reveal{
+    margin-right:0;
+    .menu { display: block;}
+  }
+
+
+  // 行動版側欄主選單
+  .menu{
+    &>ul{
+      font-size: 1.2rem; line-height: 1.2;
+      li{
+        a{
+          position: relative; color: $fontInvert; text-decoration: none;
+          transition: .2s;
+          &:hover, &:focus{background-color: rgba(0,20,20,.3)}
+        }
+        &.hasChild{
+          &>a{
+            padding-right: 36px;
+            &::after{
+              content: ''; position: absolute; right: 15px; top: 1em;
+              width: 8px; height: 8px; border: 2px solid $white;
+              transform: rotate(45deg); border-left: none; border-top: none;
+              transition: .2s;
+            }
+          }
+          &.closeIt>a{
+            &::after{ transform: rotate(225deg); top: 1.2em; }
+          }
+        }
+
+        // 第二層
+        ul{ 
+          display: none;
+          font-size: 1rem; border-top: 1px solid rgba(255,255,255,.2);
+          li{
+            a{
+              padding: .8em .8em .7em 38px;
+              &::before{
+                content: ''; position: absolute; left: 1.3em; top: 1.4em;
+                width: 6px; height: 2px; background-color: $fontInvert;
+              }
+            }
+          }
+          // 第三層和其之後
+          ul{ 
+            margin-left: 32px; border-top: none;
+            a{ padding-left: 22px;
+              &::before {left: 7px; height: 1px;}
+            }
+          }
+        }
+      }
+
+      // 第一層選單項目
+      &>li{
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        &>a{
+          position: relative;
+          padding: .8em 16px .7em; transition: .2s;
+        }
+      }
+    }
+
+  }
+
+
+
+  @media screen and (min-width: $wwNormal){
+    display: none;
+  }
+
+}

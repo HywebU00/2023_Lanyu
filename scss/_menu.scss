@@ -1,0 +1,179 @@
+.menu{
+  font-weight: normal;
+  ul{list-style: none; margin: 0 auto;padding: 0;}
+  li{margin: 0;padding: 0;
+    a{display: block; outline: none;}
+  }
+}
+
+// 寬版主選單
+// --------------------------------------------------------------- //
+.webHeader {
+  .menu{display: none;}
+
+  @media screen and (min-width: $wwNormal){
+    .menu{
+      display: block; 
+      position: relative; margin: 0 ; padding: 0; z-index: 95;
+      a{
+        position: relative;
+        display: block; color: $primary; text-decoration: none;
+        outline: none;
+      }
+      &>ul{
+        width: auto; min-width: 300px; margin: 0; padding: 0 10px; 
+        text-align: center; font-size: 21px;
+
+        display: flex; justify-content: center;
+        &>li{
+          flex:0 1 25%;
+          position: relative;margin: 0 2px; padding: 0;
+
+          &>a{
+            margin: 0 auto; padding: 0 0 4px;
+            white-space: nowrap; width: 100%;
+            &::before {
+              content: ''; display: block;
+              width: 64px; height: 50px;
+              margin: 0 auto 6px;
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 46px auto;
+            }
+            &::after{
+              // 作為 hover 底色
+              content: ''; position: absolute; left: 0; bottom: 0; z-index: -1;
+              width: 100%; height: 0;
+              border-radius: 8px 8px 0 0;
+              background-color: $primary;
+              transition: .3s;
+            }
+          }
+          
+          &.here{
+            &>a{
+              color: $fontInvert;
+              &::after{ height: 1.8em;}
+            }
+          }
+
+
+  
+          &:nth-child(1) {
+            a::before{ background-image: url(../images/menu_icon01.svg); }
+          }
+          &:nth-child(2) {
+            a::before{ background-image: url(../images/menu_icon02.svg); }
+          }
+          &:nth-child(3) {
+            a::before{ background-image: url(../images/menu_icon03.svg); }
+          }
+          &:nth-child(4) {
+            a::before{ background-image: url(../images/menu_icon04.svg); }
+          }
+  
+          // 第二層選單
+          &>ul{
+            display: none; 
+            position: absolute; left: 0; z-index: 9;
+            min-width: 100%; max-width: 8em;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            text-align: left;
+            padding:2px 4px;
+            border-radius: 0 0 24px 24px;
+            background-color: $primary;
+  
+            &::before{
+              content: ''; position: absolute; left: 4px; right: 4px; top: 0;
+              height: 1px; background-color: transparentize($white, .65);
+            }
+            
+            &>li{
+              padding: 2px 0;
+              &>a{
+                padding: 7px .8em; border-radius: 1.2em;
+                color: $fontInvert;
+                transition: .3s;
+                &:hover, &:focus{
+                  color: $primary; background-color: $white;
+                }
+              }
+            }
+          }
+
+          &:nth-child(3) { margin-left: 2px;}
+        }
+     
+      }
+    }
+
+    // 首頁專用
+    &.mp{
+      .menu{
+        padding: 25px 0 0;
+        &>ul{
+          width: 94%; min-width: 980px; margin: 0 auto; padding:20px 0 0; 
+          font-size: 24px; font-weight: 400; text-align: center; 
+    
+          &>li{
+            margin: 0 4px;
+                   
+            &:nth-child(3){margin-left: 12em;}
+        
+            &>a{
+              &::before{
+                height: 64px; 
+                margin-bottom: 16px;
+                background-size: 62px auto;
+              }
+            }
+
+            &.here{
+              &>a{
+                &::after{ height: 1.85em;}
+              }
+            }
+          }
+        }
+      }
+
+      &.fixed{
+        .menu{
+          position: relative; width: auto; margin: 0 ; padding: 0;
+          &>ul{
+            width: auto; min-width: 300px; margin: 0; padding-top: 0; text-align: center;
+            font-size: 21px; 
+            &>li{
+              display: inline-block;margin: 0 2px;
+              &>a{
+                margin: 0 auto;
+                &::before {
+                  height: 50px;
+                  margin-bottom: 5px;
+                  background-size: 46px auto;
+                }
+              }
+              &:nth-child(3) { margin-left: 2px;}
+            }
+         
+          }
+        }
+      }
+      
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &.mp{
+      .menu{ width: $wwMaximum; margin: 0 auto; }
+
+      &.fixed{
+        .menu{ width: $wwMaximum; margin: 0 auto; 
+          &>ul{ padding: 0 10px; }
+        }
+      }
+    }
+  }
+
+}
