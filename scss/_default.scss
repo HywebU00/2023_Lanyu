@@ -1,18 +1,11 @@
-
-
-
-// --------------------------------------------------------------- //
-// --------------------------------------------------------------- //
-// --------------------------------------------------------------- //
-
-
 body{
   position: relative;
   margin: 0; padding: 0; 
   font-size: 1.125em; letter-spacing: .06em;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  background-color: $white;color: $fontColor;
+  background:$mainBgc;
+  color: $fontColor;
 
   *{ box-sizing: border-box; outline: none;}
 
@@ -25,30 +18,28 @@ body{
   }
 
 }
-time{ letter-spacing: 0;}
+time{ letter-spacing: 0; }
 
-
-
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
 
 .main{
   position: relative;
-  margin: 0 auto; padding:20px 0 40px; max-width: 1440px;
-  background:$mainBgc;
+  margin: 0 auto; padding:20px 0 40px; 
 
   @media screen and (min-width: $wwNormal){
     padding-bottom: 80px;
-  }
-
-  &.mp{
-    @media screen and (min-width: $wwNormal){
-      padding: 0;
-      position: relative;
-      background:$mainBgc url(../images/mpMainBg.png) no-repeat 10px 140px;
-
+    &.mp{
+      position: relative; padding: 0;
+      background: url(../images/mpMainBg.png) no-repeat 20px 140px;
       &::after{
         content: ''; display: block; clear: both;
       }
     }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum;
   }
 }
 

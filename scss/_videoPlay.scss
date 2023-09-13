@@ -1,10 +1,11 @@
 // YT 影片播放頁
 .videoPlay{
   @extend %primSecWidth; padding: 0 0 30px;
-  // background-color: #eee;
+  background-color: $white;
   max-width: 880px;
-  box-shadow: $borderColorDark 0 0 0 1px;
-  border-radius: 0 0 16px 16px;
+  box-shadow: $shadowColor 0 0 8px;
+  border-radius: 8px 8px 16px 16px;
+  overflow: hidden;
   iframe{
     display: block; margin: 0 auto;
     width: 100%; height: $mobileWidth*.5625;
@@ -12,7 +13,7 @@
   }
 
   .videoInfo{
-    margin: 30px 15px 15px; padding: 0;
+    margin: 40px auto 20px; padding: 0; width: 92%;
     .title{ font-size: 1.5em; margin: 0;}
     dl{
       margin: 20px 0; padding: 12px 0;
@@ -33,12 +34,12 @@
     article{
       line-height: 1.8;
       p{
-        margin:1em 0 0;
+        margin:1em 0 8px;
       }
     }
   }
 
   @media screen and (min-width: $wwNormal){
-    margin-bottom: 90px;
+    box-shadow: $shadowColor 0 4px 16px;
   }
 }

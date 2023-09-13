@@ -203,17 +203,18 @@
   &>ul>li{
     padding: 0; margin: 0 0 20px;
     border: none;
-    box-shadow: $borderColor 0 0 0 1px;
-    border-radius:0 0 12px 12px;
+    background-color: $white;
+    box-shadow: $shadowColor 0 0 12px;
+    border-radius:8px 8px 16px 16px;
+    overflow: hidden;
     a{
-      display: block;
-      padding: 0; color: $fontColor;
+      display: block; padding: 0; 
+      color: $fontColor; text-decoration: none;
       transition: .2s;
       &:hover, &:focus{
         dd{
           text-decoration: underline;
         }
-        // box-shadow: $borderColorDark 0 0 0 4px;
       }
     }
   }
@@ -225,7 +226,7 @@
     }
   }
   dl{
-    text-align: left; padding: 0 0 12px; margin:16px 12px 0;
+    text-align: left; padding: 0; margin:16px;
     line-height: 1.7;
     &>div{
       border-bottom: 1px solid $borderColorLight;
@@ -233,11 +234,11 @@
       &:last-child{border-bottom: none;}
     }
     dt, dd{
-      text-indent: 0; margin: 0; padding: 0;
-      display: inline-block; vertical-align: top;
+      text-indent: 0; margin: 0; padding: 0; vertical-align: top;
     }
+    dd{ display: inline;}
     dt{
-      color: $fontColorLight;
+      color: $fontColorLight;display: inline-block; 
       &::after{content: '：';}
     }
 
@@ -245,33 +246,33 @@
 
 
   @media screen and (min-width: $wwMedium){
-    // box-shadow: none; padding: 0;
-
     &>ul>li{
-     display: flex;
-      border-radius: 0 12px 12px 0;
+      display: flex;margin-bottom: 24px;
+      border-radius: 8px 16px 16px 8px;
+      box-shadow: $shadowColor 0 8px 14px -4px;
+      transition: .2s;
+      &:hover{
+        box-shadow: $primary 0 0 0 3px;
+        transform: translateY(4px);
+      }
+
       .cover{
         flex: 0 1 50%; margin: 0;
         background-color: $black;
         img, iframe{ width: 100%; height: $mobileWidth*0.5*.5625;}
       }
 
-      &>a{flex: 1 1 50%;  text-decoration: none; }
+      &>a{flex: 1 1 50%;}
 
       dl{
-        margin: 0 12px; text-decoration: none;
-        &>div{
-          display: flex;
-        }
-        dt{
-          flex: 1 0 3em;white-space: nowrap;
-        }
+        margin: 0 12px; padding: .8em 0;
+        &>div{display: flex;}
+        dt{ flex: 0 0 5.5em;white-space: nowrap;}
         dd{
           flex: 1 1 80%;
           display: -webkit-box; -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;overflow: hidden;
         }
-        
       }
     
     }
