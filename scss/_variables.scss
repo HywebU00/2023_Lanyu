@@ -1,7 +1,7 @@
 // ---------- 長度常數 ---------- //
 $sideBarWidth: 300px;  // 窄版側欄選單
 $mobileWidth: 92vw; // 窄螢幕內容寬度
-$normalWidth: 94vw; // 寬螢幕內容寬度
+$normalWidth: 92vw; // 寬螢幕內容寬度
 // ---------- 長度常數 ---------- //
 
 
@@ -15,9 +15,12 @@ $wwMaximum: 1440px;
 
 // 主要區塊寬度 ----------- //
 %primSecWidth {
-  width: 92%; margin: 30px auto;
+  width: 92%; margin: 15px auto 30px;
+  @media screen and (min-width: $wwNormal){
+    margin-top: 25px;
+  }
   @media screen and (min-width: $wwMaximum){
-    width: $wwMaximum*.94;
+    width: $wwMaximum*.92; 
   }
 }
 
@@ -43,8 +46,9 @@ $btnBg2: #01425c;
 $white: #fff;
 $black: #000;
 $gray: #9db0b0;
-$grayLight: #ebefef;
+$grayLight: #f1f4f9;
 $grayDark: #515656;
+$mainBgc:#f1f4f9;
 
-$shadowColor: #0005;
+$shadowColor: rgba(157, 176, 176, .5);
 // ---------- 顏色變數 ----------- //

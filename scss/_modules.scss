@@ -32,10 +32,10 @@
 // 內頁標題 
 // --------------------------------------------------------------- //
 .pageHeader{
-  @extend %primSecWidth;
-  color: $fontColor; font-size: 1.4em; line-height: 1.5;
+  @extend %primSecWidth; margin: 0 auto 5px;
+  color: $fontColor; font-size: 1.4em; 
   h2{
-    padding: 0; margin: 0;
+    padding: 0; margin: 0 ;line-height: 1.5;
   }
 }
 
@@ -182,9 +182,13 @@
 // 列表上方的文字
 .preface{
   @extend %primSecWidth;
-  padding:1em 2em; line-height: 2;
+  padding:1.8em 2em; line-height: 2;
   background: #fff; border-radius: 16px;
   box-shadow: rgba(0,0,0,.15) 0 0 20px;
+  p{
+    margin: 0;
+    &+p{ margin-top: 1.2em;}
+  }
 }
 
 
@@ -192,6 +196,50 @@
 // 查詢服務
 .searchInline{
   @extend %primSecWidth;
+
+  --inputHeight: 44px;
+
+  display: flex; align-items: center;
+  padding: 6px; border-radius: 2em;
+  background-color: $assistant1;
+  &:last-child{margin-bottom: 40px;}
+  .label{flex: 0 0 auto;margin: 0 0 0 .6em;white-space: nowrap;}
+  input[type="text"]{
+    flex: 1 1 70%;
+    height: var(--inputHeight); border-radius: 2em;
+    padding: 0 1em; margin: 0 8px; 
+    box-shadow: none; background-color: rgb(255 255 255 / .7);
+    color: $fontColor;
+    transition: .2s;
+    &::placeholder {
+      color: $fontColorLight;
+      opacity: 1; /* Firefox */
+    }
+    &:hover, &:focus{ background-color: rgb(255 255 255 / 1)}
+    &:focus{box-shadow: $assistant1 0 0 0 1px, $white 0 0 0 3px;}
+  }
+
+  button{
+    --tinge : #fff;
+    @extend %searchIcon;
+
+    width: var(--inputHeight); height: var(--inputHeight);
+    padding: 0; margin: 0; border-radius: 50%;
+    background-color: $primary; color: $white;
+    transition: .2s;
+    &:hover, &:focus{ box-shadow:$white 0 0 0, $primary 0 0 0 1px;}
+    &:focus{box-shadow:$white 0 0 0 1px, $primary 0 0 0 4px;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    width:30em; margin-left: 4vw;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    margin-left: $wwMaximum*.03;
+    &:last-child{margin-bottom: 80px;}
+
+  }
 
 }
 

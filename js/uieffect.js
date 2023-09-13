@@ -411,6 +411,42 @@ $(function(){
     zIndex:8
   });
 
+    // 研究歷程 與 活動記錄
+    $('.logbook').find('.flow').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplaySpeed: 5000,
+      speed: 800,
+      autoplay: true,
+      arrows: true,
+      dots: true,
+      fade: false,
+      infinite: true,
+
+      mobileFirst: true,
+      responsive: [
+        {
+          breakpoint: 700,
+          settings: {
+            vertical: false,
+            slidesToShow: 2,
+            autoplay: true,
+            arrows: true,
+          }
+        },
+        {
+          breakpoint: 1000,
+          settings: {
+            vertical: false,
+            slidesToShow: 3,
+            autoplay: true,
+            arrows: true,
+          }
+        }
+      ]
+  
+    });
+
   // -------- 外掛套件 slick 參數設定 END
 
 

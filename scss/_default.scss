@@ -32,15 +32,18 @@ time{ letter-spacing: 0;}
 
 .main{
   position: relative;
-  margin: 0 auto; max-width: 1440px;
+  margin: 0 auto; padding:20px 0 40px; max-width: 1440px;
+  background:$mainBgc;
+
+  @media screen and (min-width: $wwNormal){
+    padding-bottom: 80px;
+  }
 
   &.mp{
-    background:#f1f4f9;
     @media screen and (min-width: $wwNormal){
-      // padding-right: 360px;
       padding: 0;
       position: relative;
-      background:#f1f4f9 url(../images/mpMainBg.png) no-repeat 10px 140px;
+      background:$mainBgc url(../images/mpMainBg.png) no-repeat 10px 140px;
 
       &::after{
         content: ''; display: block; clear: both;

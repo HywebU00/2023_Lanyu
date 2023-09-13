@@ -6,7 +6,8 @@
   @extend %primSecWidth;
   position: relative;
   &>ul{
-    list-style: none; margin: 0; padding: 0; line-height: 1.5; 
+    list-style: none; margin: 0; padding: 16px; line-height: 1.5;
+    background-color: $white; border-radius: 16px;
     &>li{
       margin: 0 0 8px; padding: 0;
       p{ 
@@ -53,14 +54,11 @@
     }
   }
 
-  @media screen and (min-width: $wwMedium){
-
-
-  }
-
   @media screen and (min-width: $wwNormal){
-    padding:25px 15px 20px;
-    box-shadow: $borderColor 0 0 16px; border-radius: 12px;
+    padding:25px 16px 20px;
+    background-color: $white; 
+    box-shadow: $shadowColor 0 0 16px;border-radius: 16px;
+    &>ul{padding:0; background:none;}
   }
 
 }
@@ -123,23 +121,6 @@
       }
       time{ display: inline-block; white-space: nowrap; }
 
-      // 表格內圖片
-      // .sPhoto{
-      //   display: inline;
-      //   // margin: 0 auto;width: 100%; max-width: 400px;
-      //   img{ 
-      //     display: block;margin: 0 auto;width: 300px;
-      //     transition: .25s;
-      //   }
-      //   a{
-      //     &:hover, &:focus {
-      //       // img{ box-shadow:$white 0 0 0 1px, $primary 0 0 0 4px;}
-      //       // img{ box-shadow:$white 0 0 0 4px inset, $primary 0 0 0 3px inset;}
-      //     }
-      //   }
-      // }
-
-
       .sPhoto {
         display: block; position: relative; width: 300px;
         img{ display: block; width: 100%;}
@@ -167,17 +148,18 @@
 
 
   @media screen and (max-width: calc($wwNormal - 1px)){
-    // border: 1px solid $borderColor;
     &>table{
-      width: 100%; margin: 0;
+      width: 100%; margin: 0;border: none;
       &.rwdTable{
         border: none;
         thead{display: none;}
         tr, th, td{ display: block;}
         tr{ 
           position: relative; overflow: hidden;
-          padding: .5em 8px .4em; margin: 0 0 12px;
-          border: 1px solid $borderColor; border-radius: 6px;
+          padding: .5em 12px .4em; margin: 0 0 16px;
+          border-radius: 8px; border: none;
+          background-color: $white;
+          box-shadow: $shadowColor 0 0 8px;
         }
         tbody tr:last-child{border-bottom: 1px solid $borderColor;}
         th, td{

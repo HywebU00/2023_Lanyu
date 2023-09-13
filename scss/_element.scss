@@ -32,6 +32,30 @@ time{
 }
 
 
+// --------------------------------------------------------------- //
+// 放大鏡圖示 % % % % % % % % % % % % % % %
+%searchIcon{
+  --tinge : #666;
+  
+  position: relative;
+  text-indent: -10em; overflow: hidden;
+  
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    left: calc(50% - 14px); top: calc(50% - 14px);
+    width: 15px; height: 15px; 
+    border: 3px solid var(--tinge); border-radius: 50%;
+  }
+  &::after{
+    width: 12px; height: 3px; background-color: var(--tinge); border-radius: 2px;
+    left: calc(50% + 2px); top: calc(50% + 6px);
+    transform: rotate(45deg);
+  }
+}
+// --------------------------------------------------------------- //
+
 // 查詢圖示 + 行動版側欄開關 
 // --------------------------------------------------------------- //
 .searchCtrl, .sidebarCtrl{
@@ -60,19 +84,20 @@ time{
   --tinge : #{$primary};
 
   transition: background-color .2s, box-shadow .2s, right .2s;
+  @extend %searchIcon;
 
-  &::before, &::after{
-    content: ''; position: absolute;
-  }
-  &::before{
-    left: calc(50% - 14px); top: calc(50% - 14px);
-    width: 15px; height: 15px; border: 3px solid var(--tinge); border-radius: 50%;
-  }
-  &::after{
-    width: 14px; height: 3px; background-color: var(--tinge); border-radius: 2px;
-    left: calc(50% + 2px); top: calc(50% + 7px);
-    transform: rotate(45deg);
-  }
+  // &::before, &::after{
+  //   content: ''; position: absolute;
+  // }
+  // &::before{
+  //   left: calc(50% - 14px); top: calc(50% - 14px);
+  //   width: 15px; height: 15px; border: 3px solid var(--tinge); border-radius: 50%;
+  // }
+  // &::after{
+  //   width: 14px; height: 3px; background-color: var(--tinge); border-radius: 2px;
+  //   left: calc(50% + 2px); top: calc(50% + 7px);
+  //   transform: rotate(45deg);
+  // }
 
   &.closeIt{
     &::before, &::after {
@@ -86,7 +111,6 @@ time{
     &::after{
       transform: rotate(-45deg);
     }
-
   }
 
   @media screen and (min-width: $wwNormal){
@@ -228,36 +252,82 @@ button.skip{
 // --------------------------------------------------------------- //
 .slick-slider {
   position: relative;
-
   button{background: none; border: none; padding: 0; margin: 0;}
 
   // 點點或數字
   .slick-dots{
-    position: absolute; 
     list-style: none; margin: 0;padding: 0;
-    display: flex; justify-content: center;
+    font-size: 1rem; line-height: 1; text-align: center;
+    letter-spacing: 0;
+    li{
+      display: inline-block; 
+      margin: 0 2px; padding: 0 0 4px;
+      button{
+        min-width: 1.5em; height: 1.2em; line-height: 1;
+        margin: 0; padding: 0;
+        background: none; border: none; outline: none;
+      }
+
+    }
   }
 
   // 左右箭頭
   .slick-arrow{
-    position: absolute; z-index: 9;
-    width: 44px; height: 44px;
+    position: absolute; z-index: 9;bottom: 0;
+    width: 48px; height: 48px; border-radius: 50%;
     text-indent: -10em; overflow: hidden;
-    &.slick-prev {left: 0;}
-    &.slick-next {right: 0;}
-  
+    transition: .2s;
+
+    &.slick-prev { left: 0; }
+    &.slick-next {right: 0; }
+
+    &:hover{background-color: $primary;}
   }
+}
 
-  @media screen and (min-width: $wwNormal){
+// --------------------------------------------------------------- //
+// 內頁 slick 點點、箭頭樣式
+.flow{
+  .slick-dots{
+    font-size: 1em;
+    li{
+      position: relative; padding-bottom: 7px;
+      &::after{
+        position: absolute; left: calc(50% - 3px); bottom: 0;
+        content: ''; width: 1px; height: 1px; border-radius: 3px;
+        transition:.3s;
+      }
+      &.slick-active{
+        &:after{background-color: $primary; width: 6px; height: 6px;}
+      }
 
-    // 點點或數字
-    .slick-dots{
-      font-family: 'Times New Roman', Times, serif;
+      button{color: $fontColorLight;}
     }
   }
 
-}
+  .slick-arrow{
+    background-color: $assistant1;
+    &::before{
+      content: '';
+      position: absolute; 
+      width: 10px; height: 10px; transform: rotate(45deg);
+      border: 2px solid $white; 
+      top: calc(50% - 6px); 
+    }
+    &.slick-prev {
+      &::before{border-top: none;border-right: none;left: calc(50% - 4px);}
+    }
+    &.slick-next {
+      &::before{border-bottom: none;border-left: none;right: calc(50% - 4px);}
+      
+    }
 
+    &:hover{ transform: scale(1.2);}
+  }
+} 
+
+
+// --------------------------------------------------------------- //
 // 物種保育等級標籤
 .spClassify{
   --class: #666;
