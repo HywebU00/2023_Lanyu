@@ -15,9 +15,9 @@ $wwMaximum: 1440px;
 
 // 主要區塊寬度 ----------- //
 %primSecWidth {
-  width: 92%; margin: 15px auto 30px;
+  width: 92%; margin: 5px auto 30px;
   @media screen and (min-width: $wwNormal){
-    margin-top: 25px;
+    // margin-top: 25px;
   }
   @media screen and (min-width: $wwMaximum){
     width: $wwMaximum*.92; 
@@ -46,9 +46,9 @@ $btnBg2: #01425c;
 $white: #fff;
 $black: #000;
 $gray: #9db0b0;
-$grayLight: #f1f4f9;
+$grayLight: #edf0e5;
 $grayDark: #515656;
 $mainBgc:#f1f4f9;
 
-$shadowColor: rgba(157, 176, 176, .5);
+$shadowColor: rgba(85, 96, 97, .5);
 // ---------- 顏色變數 ----------- //

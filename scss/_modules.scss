@@ -186,8 +186,8 @@
 .preface{
   @extend %primSecWidth;
   padding:1.8em 2em; line-height: 2;
-  background: #fff; border-radius: 16px;
-  box-shadow: rgba(0,0,0,.15) 0 0 20px;
+  background: $white; border-radius: 16px;
+  box-shadow: $shadowColor 0 0 20px;
   p{
     margin: 0;
     &+p{ margin-top: 1.2em;}
