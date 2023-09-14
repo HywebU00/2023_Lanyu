@@ -76,49 +76,16 @@
 // --------------------------------------------------------------- //
 // 主題圖，由使用者後端上稿
 .themePic{
-  width: 100%; margin: 0 auto 30px;
+  display: block; width: 100%; margin: 0 auto 30px;
   img{
-    display: block; margin: 0;
-    width: 100%; height: auto;
-  }
-}
-
-
-// --------------------------------------------------------------- //
-// 參與團隊（特定頁面樣式）
-.teamList{
-  .team{
-    display: flex; align-items: center;
-    padding: 25px 5px;
-    border-bottom: 1px solid $borderColor;
-    .teamLogo{
-      flex: 0 0 25%; margin: 0 4% 0 0;
-      img{
-        display: block; margin: 0 auto; 
-        width: 94%; max-width: 200px; height: auto;
-      }
-    }
-    p{
-      flex: 1 1 auto;
-      margin: 0; line-height: 1.5;font-size: 1.45em;
-      a{
-        display: block;
-        text-decoration: none; 
-        color: $fontColor;
-        &:hover, &:focus{
-          text-decoration: underline;
-        }
-      }
-    }
+    display: block; margin: 0; object-fit: fill;
+    width: 100%; height: auto; 
+    max-height: 400px;
   }
 
-  @media screen and (min-width: $wwNormal){
-    .team{
-      .teamLogo{
-        flex-basis: 30%;
-      }
-    }
-
+  @media screen and (min-width: $wwMaximum){
+    position: relative;
+    width: 100vw; left: calc( $wwMaximum*.5 - 50vw);
   }
 }
 
