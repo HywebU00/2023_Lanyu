@@ -186,8 +186,8 @@
 .preface{
   @extend %primSecWidth;
   padding:1.8em 2em; line-height: 2;
-  background: $white; border-radius: 16px;
-  box-shadow: $shadowColor 0 0 20px;
+  background: $grayLight; border-radius: 16px;
+  box-shadow: $shadowColor 0 2px 10px;
   p{
     margin: 0;
     &+p{ margin-top: 1.2em;}
@@ -239,7 +239,7 @@
   }
 
   @media screen and (min-width: $wwMaximum){
-    margin-left: $wwMaximum*.03;
+    margin-left: $wwMaximum*.04;
     &:last-child{margin-bottom: 80px;}
 
   }

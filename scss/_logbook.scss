@@ -36,11 +36,13 @@
       }
     }
 
-    img{ 
-      display: block; width: 100%; margin: 0 0 1em; 
-      height: calc(($mobileWidth - 46px)*.75);
-      object-fit: cover; background: $gray;
-      transition: .3s;
+    .pic{
+      display: block;margin: 0 0 1em; overflow: hidden;
+      img{ 
+        display: block; width: 100%; object-fit: cover;
+        height: calc(($mobileWidth - 46px)*.75);
+        transition: .3s;
+      }
     }
 
     time{ 
@@ -53,23 +55,25 @@
     }
 
     p{ 
-      margin: .5em 0; line-height: 1.5; 
-      display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;
-      overflow: hidden;
-
+      margin: .5em 3px; line-height: 1.5; overflow: hidden;
       &.title{ 
-        display: block; margin: 1.2em auto 0;
+        margin-top: 1em;
         white-space: nowrap; text-overflow: ellipsis;
         font-size: 1.15em; font-weight: normal;
       }
-      &.description{ font-size: 1em;height: 4.6em;}
+      &.description{ 
+        font-size: 1em;height: 4.6em;
+        display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;
+      }
     }
   }
 
 
   @media screen and (min-width: $wwMedium){
     .oneDay{
-      img{height: calc(($mobileWidth*.5 - 46px)*.75);}
+      .pic{
+        img{height: calc(($mobileWidth*.5 - 46px)*.75);}
+      }
     }
   }
 
@@ -77,13 +81,17 @@
     width: calc(92% + 30px);
 
     .oneDay{
-      img{height: calc(($normalWidth/3 - 46px)*.75);}
+      .pic{
+        img{height: calc(($normalWidth/3 - 46px)*.75);}
+      }
     }
   }
 
   @media screen and (min-width: $wwMaximum){
     .oneDay{
-      img{height: calc(($wwMaximum*.3067 - 46px)*.75);}
+      .pic{
+        img{height: calc(($wwMaximum*.3067 - 46px)*.75);}
+      }
     }
   }
 

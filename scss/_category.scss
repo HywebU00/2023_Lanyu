@@ -1,6 +1,6 @@
 // 資料大類
 .category{
-  @extend %primSecWidth; margin: 20px auto 10px;
+  @extend %primSecWidth; margin: 20px auto 15px;
   ul{
     list-style: none; margin: 0; padding: 0; line-height: 1.1;
     &::after{ content: ''; display: block; clear: both;}
@@ -8,25 +8,26 @@
   li{
     float: left; margin: 5px;
     a {
-      display: block;height: 2.4em; line-height: 2.3em; padding: 0 1.5em;
+      display: block;height: 2.4em; line-height: 2.3em; padding: 0 1.2em;
       border-radius: 2em; text-decoration: none;
-      box-shadow: $assistant1 0 0 0 2px;
+      box-shadow:transparent 0 0 0 0, $primary 0 0 0 1px;
       background-color: $white; color: $fontColor;
       transition: .2s;
 
-      &:hover, &:focus{  box-shadow: $primary 0 0 0 2px;}
+      &:hover, &:focus{ box-shadow:$white 0 0 0 2px, $primary 0 0 0 4px; }
 
-      span {
+      .count {
         display: inline-block; margin: 0 0 0 .4em;
-        font-size: .95em; font-weight: bold;
-        // font-family: 'Times New Roman', Times, serif;
+        font-size: 1rem; font-weight: bold; letter-spacing: 0;
+        &::before{content: '(';}
+        &::after{content: ')';}
       }
     }
     &.active{
       a{
         background-color: $primary; color: $fontInvert;
         box-shadow: $primary 0 0 0 2px;
-        &:hover, &:focus{ box-shadow:#fff 0 0 0 1px, $primary 0 0 0 3px;}
+        &:hover, &:focus{ box-shadow:$white 0 0 0 1px, $primary 0 0 0 4px;}
       }
     }
   }
