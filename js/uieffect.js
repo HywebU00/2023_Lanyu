@@ -324,6 +324,30 @@ $(function(){
   });
 
 
+  // --------------------------------------------------------------- //
+	// 頁籤
+  var _tabset = $('.tabset');
+  _tabset.each(function(){
+    let _this = $(this);
+    let _tabButton = _this.find('.tabButtons').find('button');
+    let _tabContent = _this.find('.tabContent');
+    let i = _tabButton.filter('.active').index();
+
+    _tabContent.hide().eq(i).show();
+    console.log(i);
+    _tabButton.click( function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      i = $(this).index();
+      // console.log(i);
+      _tabContent.hide().eq(i).show();
+    })
+
+
+    
+  })
+
+
+
   
   // --------------------------------------------------------------- //
   // --------------------------------------------------------------- //
@@ -406,7 +430,7 @@ $(function(){
     autoplay: true,
     arrows: true,
     dots: true,
-    fade: false,
+    fade: true,
     infinite: true,
     zIndex:8
   });
@@ -469,6 +493,11 @@ $(function(){
 			}
 		})
 	})
+
+
+
+
+
 
 
 

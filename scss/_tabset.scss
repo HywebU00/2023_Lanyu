@@ -1,0 +1,79 @@
+.tabset{
+  --tabBg: #{$primary};
+  --tabContentBg: #fff;
+  --color: #{$fontInvert};
+
+  @extend %primSecWidth;
+
+
+  .tabButtons{
+    padding: 5px 0 0; overflow: hidden;
+    display: flex; position: relative;
+    button{
+      flex: 0 1 auto;
+      height: 3em; width: 8em; padding: 0 .4em; margin: 0 2px -4px;
+      border-radius: 8px 8px 0 0;
+      background-color: var(--tabBg); color: var(--color);
+      white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+
+      .year{ display: none;}
+
+      &.active{
+        --tabBg: var(--tabContentBg);
+        --color: #{$primary};
+
+        position: relative; z-index: 9;
+        transform: translateY(-3px);
+        box-shadow: var(--color) 0 0 0 2px;
+        font-weight: bold;overflow:visible;
+
+        .year{ display: block; font-size: .85em;}
+      }
+    }
+
+    &::after{
+      content: ''; position: absolute; left: 0;right: 0; bottom: 0;
+      height: 2px; background-color: var(--tabBg);
+    }
+  
+  }
+
+  .tabContent{
+    display: none;
+    
+    padding: 30px 2.5vw; line-height: 1.8;
+    border-radius: 0 0 16px 16px;
+    border: $primary 2px solid; border-top: none;
+    background-color: var(--tabContentBg);
+
+    &:nth-of-type(1){display: block;}
+
+    img{ 
+      display: block; margin: 20px auto 40px; padding: 8px; width: 100%;
+      background-color: #fff;
+      box-shadow: $shadowColor 0 4px 16px;
+      position: relative;
+    }
+
+    p{margin: 0 0 1em;}
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    .tabButtons{
+      button{
+        .year{ 
+          display: inline-block;
+          &::after{content: '/';}
+        }
+
+        &.active .year{ display: inline-block; font-size: inherit;}
+      }
+    }
+    .tabContent{
+      padding-left: 25px; padding-right: 25px;
+      img{max-width: 70%;}
+    }
+  }
+}
