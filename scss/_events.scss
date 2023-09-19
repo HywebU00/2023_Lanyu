@@ -26,10 +26,15 @@
       width: 88px; height: 88px; line-height:65px;
       border: 10px solid $assistant1;
       color: $primary;
+      transition: .25s;
+      &:hover{
+        background-color: $primary; color: $white;
+        box-shadow: $primary 0 0 0 6px;
+      }
     }
   }
   .brief{
-    padding:50px 20px 20px;line-height: 1.8;
+    padding:60px 20px 20px;line-height: 1.8;
     border-radius: 0 8px 20px 20px;
     background-color: $white;
     a{
