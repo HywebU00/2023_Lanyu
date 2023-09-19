@@ -9,26 +9,38 @@
   .tabButtons{
     padding: 5px 0 0; overflow: hidden;
     display: flex; position: relative;
+    font-size: 1rem;
     button{
-      flex: 0 1 auto;
-      height: 3em; width: 8em; padding: 0 .4em; margin: 0 2px -4px;
+      flex: 0 1 auto; width: 8em;
+      height: 3.1em;line-height: 1.15; padding: 0 4px .6em; margin: 0 2px -8px 0;
       border-radius: 8px 8px 0 0;
+      font-size: inherit; font-family: Georgia, 'Times New Roman', Times, serif;
+      letter-spacing: 0;
       background-color: var(--tabBg); color: var(--color);
-      white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
-      font-family: Georgia, 'Times New Roman', Times, serif;
+      &:last-child{margin-right: 0;}
 
       .year{ display: none;}
+      .month, .date{ display: inline-block; font-size: .9em;}
+      .month{
+        &::after{ content: '/'; }
+      }
 
       &.active{
         --tabBg: var(--tabContentBg);
         --color: #{$primary};
 
         position: relative; z-index: 9;
+        font-weight: bold;white-space: nowrap;
+        margin-right: 3px; margin-left: 1px;
         transform: translateY(-3px);
         box-shadow: var(--color) 0 0 0 2px;
-        font-weight: bold;overflow:visible;
 
-        .year{ display: block; font-size: .85em;}
+        &:first-child{margin-left: 2px;}
+        &:last-child{margin-right: 2px;}
+        
+        .year{ display: block;font-size: .6em;}
+        .month, .date{ display: inline; font-size: 1em;}
+        .month::after{ content: '/'; display: inline;}
       }
     }
 
@@ -50,7 +62,7 @@
     &:nth-of-type(1){display: block;}
 
     img{ 
-      display: block; margin: 20px auto 40px; padding: 8px; width: 100%;
+      display: block; margin: 20px auto 40px; padding: 5px; width: 100%;
       background-color: #fff;
       box-shadow: $shadowColor 0 4px 16px;
       position: relative;
@@ -63,17 +75,21 @@
   @media screen and (min-width: $wwNormal){
     .tabButtons{
       button{
-        .year{ 
-          display: inline-block;
-          &::after{content: '/';}
-        }
-
-        &.active .year{ display: inline-block; font-size: inherit;}
+        .year{display: block; font-size: .85em;}
+        .month, .date{ font-size: 1em;}
+        
+        &.active{
+          padding-left: 6px; padding-right: 6px;
+          .year{ 
+            display: inline-block; font-size: inherit;
+            &::after{content: '/';}
+          }
+        } 
       }
     }
     .tabContent{
       padding-left: 25px; padding-right: 25px;
-      img{max-width: 70%;}
+      img{max-width: 70%; padding: 8px;}
     }
   }
 }

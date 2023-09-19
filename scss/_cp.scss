@@ -85,15 +85,46 @@
 .themePic{
   display: block; width: 100%; margin: 0 auto 30px;
   img{
-    display: block; margin: 0; object-fit: fill;
-    width: 100%; height: auto; 
-    max-height: 500px;
+    display: block; margin: 0;
+    width: 100%; height: 60vw; object-fit: cover;
   }
 
+  @media screen and (min-width: $wwMedium){
+    img{height: 40vw;}
+  }
   @media screen and (min-width: $wwMaximum){
-    position: relative;
-    width: 100vw; left: calc( $wwMaximum*.5 - 50vw);
-    img{object-fit: cover;}
+    position: relative; width: 100vw; left: calc( $wwMaximum*.5 - 50vw);
+    img{height: $wwMaximum*.4;}
+  }
+}
+
+
+// --------------------------------------------------------------- //
+// 機關，作者
+.authors{
+  @extend %primSecWidth; margin: 0 auto 12px;
+  dl{
+    line-height: 1.3; margin: 0;
+    &>div{
+      display: inline-block; margin-right: .8em; margin-top: .25em;
+    }
+  }
+  dt, dd{ display: inline-block; margin: 0;}
+  dt{
+    color: $fontColorLight;
+    &::after{content: '：';}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin-top: 10px;   overflow: hidden;
+
+    dl{
+      float: right;
+      &>div{
+        margin-right: 0;
+        &+div{margin-left: 1.2em;}
+      }
+    }
   }
 }
 
