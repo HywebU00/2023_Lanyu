@@ -27,13 +27,15 @@ time{ letter-spacing: 0; }
   position: relative;margin: 0 auto;
 
   @media screen and (min-width: $wwNormal){
-    // padding-bottom: 80px;
     &.mp{
       position: relative; padding-bottom: 80px;
       background: url(../images/mpMainBg.png) no-repeat 20px 140px;
       &::after{
         content: ''; display: block; clear: both;
       }
+    }
+    *::selection{
+      color: $fontInvert; background-color: $primary;
     }
   }
 
