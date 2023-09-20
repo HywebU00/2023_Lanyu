@@ -213,7 +213,7 @@ button.skip{
 // 回頁面最上方 
 // --------------------------------------------------------------- //
 .goTop{
-  position: fixed; bottom: -60px; right: 16px;  z-index: 90; 
+  position: fixed;z-index: 90; bottom: -60px; right: 12px; 
   padding:14px 0 0;margin: 0; width: 48px; height: 48px; line-height:1 ;
   overflow: hidden;
   font-size: .85rem; text-transform: uppercase; font-weight: bold;
@@ -235,14 +235,10 @@ button.skip{
     transition: .1s;
   }
 
-  &.show{bottom: 30px;}
+  &.show{bottom: 12px;}
 
-  @media screen and (min-width: $wwNormal){
-    right: calc(3vw - 24px);
-  }
-
-  @media screen and (min-width: $wwMaximum ){
-    right: calc(50% - $wwMaximum*.5 + 16px);
+  @media screen and (min-width: calc($wwMaximum*.92 + 144px) ){
+    right: auto; left: calc(50% + $wwMaximum*.46 + 12px);
   }
 
 }
