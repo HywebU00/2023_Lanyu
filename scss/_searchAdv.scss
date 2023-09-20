@@ -1,0 +1,225 @@
+// 進階查詢＋查詢結果
+
+// -----------------------------＊模組＊-------------------------- //
+// --------------------------------------------------------------- //
+
+// --------------------------------------------------------------- //
+// 【查詢】、【清除】、【送出】等按鈕群
+.btnDv{
+  text-align:center; padding-top:10px;
+
+  input, button{ 
+    height: 2.8em; padding: 0 1.5em; margin: 3px;
+    font-size: inherit; border-radius: 2em;
+    background-color: $primary; color:$fontInvert;
+    transition: .2s;
+    &:hover, &:focus{
+      box-shadow: $white 0 0 0 1px, $primary 0 0 0 4px;
+    }
+  }
+
+  input[type="reset"], button[type="reset"] {
+    background-color: $white; color: var(--color2);
+    box-shadow: $primary 0 0 0 2px inset;
+    &:hover, &:focus{
+      box-shadow: $white 0 0 0 1px inset, $primary 0 0 0 4px;
+    }
+  }
+}
+
+// --------------------------------------------------------------- //
+// 日期區間
+.duration{
+  position: relative;
+  display: flex; justify-content: space-between;
+  input{ 
+    flex: 0 1 calc(50% - 1em);
+    &:last-child{margin-left: 1.2em;}
+  }
+  input[type="date"]{cursor: pointer;}
+  &::before{
+    content: '～'; display: inline-block;  text-align: center;
+    line-height: 2.9; width: 1.3em;
+    position: absolute; left: calc(50% - .6em);
+  }
+}
+
+
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// 進階查詢
+.searchAdv{
+  @extend %primSecWidth; margin-bottom: 40px; padding: 25px 2vw;
+  border-radius: 16px;
+  background: lighten($assistant1, 15%); 
+
+  input, select{
+    margin: 4px;
+    height:2.8em;line-height:2.8em;
+    border-radius:4px;
+    vertical-align:middle;
+    background-color: $white; color: $fontColor;
+    transition: .2s;
+    &:hover, &:focus {
+      box-shadow: $assistant1 0 0 0 2px;
+    }
+  }
+  input {padding: 0 .5em; }
+  select{ padding: 0 24px 0 .5em; }
+
+
+  // row ------
+  .row{
+    display: flex; flex-wrap: wrap;margin: 0 0 12px;
+
+    &>.duration{ flex: 0 0 100%;}
+    &>select{
+      &:first-child{ flex: 0 1 25%; background-color: $grayLight;}
+      &:nth-child(2) {flex: 1 1 auto;}
+    }
+    &>input{
+      &:nth-child(3){flex: 1 1 100%;}
+    }
+
+    // 第一行
+    &.first{
+      &>select{ flex: 0 1 5.5em; background-color: $white;}
+      &>input{ flex: 1 1 50%;}
+     
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    padding-top: 40px; padding-bottom: 30px;
+    .row{
+      flex-wrap: nowrap; margin-bottom: 8px;
+      &>select{
+        &:first-child{ flex: 0 0 4.5em;}
+        &:nth-child(2) {flex: 0 0 20%; width: 5em;}
+      }
+      &>.duration{ flex: 1 1 50%;}
+      &>input:nth-child(3){flex: 1 1 50%;}
+
+      // 第一行
+      &.first{
+        &>select{ flex: 0 0 20%; margin-left: calc(4.5em + 12px);}
+        &>input{ flex: 1 1 50%;}
+        &>.duration{ flex: 1 1 50%; }
+      }
+    }
+  }
+}
+
+
+// --------------------------------------------------------------- //
+// --------------------------------------------------------------- //
+// 查詢結果
+.searchList{
+  @extend %primSecWidth; margin-top: 0; padding: 5px;
+  border-radius: 16px; background-color: $white;
+  box-shadow: $shadowColor 0 0 8px;
+
+  // 查詢條件與排序
+  .leading{
+    display: flex; flex-flow: row wrap; align-items: center; 
+    margin: 0; padding:20px 12px 0; border-radius: 12px;
+    letter-spacing: 0;
+    
+    &>*{
+      margin: 0;
+      &+*{margin-top: 10px;}
+    }
+    em{ font-style: normal; font-weight: normal; display: inline-block; margin: 0 .25em;}
+
+    ul.inputs{
+      flex: 0 0 100%;
+      list-style: none; margin: 0 0 20px; padding: 0 0 8px;
+      line-height: 1.5; font-size: 1rem; color: $fontColorLight;
+      border-bottom: 1px dotted $gray;
+      // box-shadow: $gray 0 0 0 1px inset;
+      li{ 
+        display: inline-block; margin:0 .9em 0 0;
+        &:last-child{margin-right: 0;}
+      }
+      em{color: $fontColor; font-size: 1.125rem; margin-left: 0;}
+    }
+
+    .total{flex: 1 1 50%; margin-right: 15px;}
+    .sorting{
+      flex: 1 1 40%; text-align: right;
+      select{
+        height: 2.2em; padding-left: .5em;margin-left: 5px;
+        border-radius: 4px;
+        background-position: top .65em right 4px;
+        background-color: lighten($assistant1, 15%);
+        // box-shadow: $assistant1 0 0 0 1px;
+      }
+    }
+  }
+
+  // 查詢結果條列
+  .results{
+    list-style: none; margin: 16px auto 0; padding: 0;line-height: 1.5;
+    &>li{
+      padding: 6px 0; margin: 0 12px;
+      border-top: 1px solid $borderColor;
+      &:first-child{ border-top-width: 3px;}
+      &:last-child{ padding-bottom: 0;}
+      a{
+        display: block; padding: 12px; margin: 0 -12px;
+        color: $fontColor; text-decoration: none; border-radius: 12px;
+        transition: .2s;
+        &:hover, &:focus{
+          background-color: $hover;
+          .title{color: $primary; text-decoration: underline;}
+        }
+      }
+      .title{
+        margin: 0;line-height: inherit;
+        font-size: 1.125em; font-weight: normal;
+      }
+
+      .info{
+        margin: 8px 0 0;
+        display: flex; align-items: flex-start;
+        &>div{
+          flex: 0 1 auto; margin-right: 20px;
+          &:last-child{margin-right: 0;}
+        }
+        dt, dd{ margin: 0; padding: 0; display: inline-block;}
+        dt{ 
+          font-size: .85em; color: $fontColorLight;
+        }
+        dd{display: block;}
+      }
+    }
+
+  }
+
+  @media screen and (min-width: $wwMedium){
+    padding: 10px;
+    .leading{
+      padding: 20px 20px 0;
+    }
+    .results{
+      margin: 20px auto 10px;
+      &>li{
+        padding: 10px 0; margin: 0 20px;
+        a{ padding-top: 16px; padding-bottom: 16px;}
+
+        .info{
+          flex-wrap: wrap;
+          &>div{ 
+            display: inline-block; margin-right: 1.5em;
+            &:last-child{margin-right: 0;}
+          }
+          dt{
+            &::after{content: '：';}
+          }
+          dd{ display: inline-block; border: none;}
+        }
+      }
+    }
+  }
+
+}

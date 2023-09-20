@@ -3,16 +3,16 @@
 form {margin: 0;padding: 0;}
 
 label { display: inline-block; font-weight: normal; cursor: pointer;}
-
+select{
+  -webkit-appearance: none;
+  padding-right: 24px;
+  background: $white url(../images/selectArrow.svg) no-repeat top 1em right 5px;
+  background-size: 20px auto;
+}
 input, textarea, select, button {
   font-size: inherit; font-family: inherit;
   box-sizing: border-box; outline: none; border: none;
   &:focus{ outline: none;}
-}
-
-input[type="text"]{
-  box-shadow: $borderColor 0 0 0 1px;
-
 }
 
 button, select, 
