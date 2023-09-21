@@ -25,11 +25,13 @@
     &:focus{outline: 1px solid $linkColor;}
   }
 
-  p{ margin: 1em 0 1.5em;}
+  p{ margin: 1.2em 0;}
+  ul, ol{margin: 1.2em 0 2em;}
 
   // 內文標題
   h3, h4, h5, h6{
-    margin: 2.5rem 0 .5rem;font-weight: normal;
+    line-height: 1.6;
+    margin: 3rem 0 .4rem;font-weight: normal;
     & + p{margin-top: .5rem;}
   }
   h3{ font-size: 1.35em; }
@@ -61,6 +63,34 @@
       th{ background-color: $grayLight; border-bottom-color: $borderColor;}
     }
     th:first-child{background-color:$grayLight; }
+  }
+
+  // 文章內嵌入影像
+  .video{
+    margin: 50px auto; width: 100%; max-width: 880px;
+    background-color: #000;
+    &:last-child{margin-bottom: 0;}
+    iframe{
+      display: block; margin: 0 auto;border:none;
+      width: 100%; height: $mobileWidth*.5625;
+      max-width: 880px; max-height: 495px;
+    }
+  }
+
+
+  // 物種資訊
+  .speciesInfo{
+    margin: 3em auto;
+    &>h3{
+      line-height: 1.4; margin: 0 0 1em;
+      small { font-weight: 300; font-size: .8em;}
+    }
+    p{
+      margin: .8em 0; line-height: 1.6;
+      &.c1{ font-size: 1.15em;}
+      &.c2{ font-weight: bold; color: $primary;}
+      &.description{}
+    }
   }
 
 

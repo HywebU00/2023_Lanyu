@@ -32,13 +32,14 @@
 // 內頁標題 
 // --------------------------------------------------------------- //
 .pageHeader{
-  @extend %primSecWidth; margin: 0 auto; padding: 40px 0 5px;
+  @extend %primSecWidth; margin: 0 auto; padding: 10px 0 5px;
   color: $fontColor; font-size: 1.4em; 
   h2{
     padding: 0; margin: 0 ;line-height: 1.5;
   }
 
   @media screen and (min-width: $wwNormal){
+    padding: 40px 0 5px;
   }
 }
 

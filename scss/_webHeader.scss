@@ -1,26 +1,26 @@
 .webHeader{
   position: relative; z-index: 920;
-  padding: 15px 0 10px 20px;
+  // padding: 15px 0 10px 20px;
+  padding: 0;
 
-  &::after{
-    // 作為 fixed 時的底色
+  &::after{ // 作為 fixed 時的底色
     content: '';
-    position: fixed; top: 0; left: 0;right: 0; z-index: 90;
-    background-color: $primary; height: 0;
-    transition: .4s;
+    position: absolute; top: 0; left: 0;right: 0; z-index: 0;
+    bottom: 100%;
+    background-color: $primary; 
+    transition: .35s ease-out;
   }
 
   h1{
-    // position: absolute; left: 20px; top: 16px; 
     position: relative; z-index: 99;
-    margin: 0; padding: 2px 0 0 64px; min-height: 60px;
+    margin: 0; padding: 16px 0 18px 84px; min-height: 60px;
     font-size: 1em; color: $primary;
     em {
       display: block;
       font-size: .93em;font-style: normal;
     }
     &::before{
-      content: ''; position: absolute; left: 0; top: 0;
+      content: ''; position: absolute; left: 20px; top: 14px;
       background: url(../images/logo.png) no-repeat center center;
       background-size: 100% auto;
       width: 56px; height: 56px; border-radius: 50%;
@@ -38,47 +38,67 @@
   }
   .searchCtrl { right: 20px; }
 
-
-  // 首頁版頭
   // --------------------------------------------------------------- //
+  // 固定版頭
+  &.fixed{
+    position: fixed; top: 0; left: 0; right: 0;
+    .sidebarCtrl, .searchCtrl {
+      --tinge : #{$white};
+      position: fixed; 
+    }
+    h1{ 
+      color: $white;
+      a{color: $white;}
+    }
+    &::after{
+      bottom: 0;
+      box-shadow: rgb(0 0 0 / .5) 0 3px 12px;
+    }
+  }
+  
+  // --------------------------------------------------------------- //
+  // 首頁版頭
   &.mp{
     padding: 0;
+    &::after{ display: none; }
+
     h1{
-      position: absolute; left: 20px; top: 16px; z-index: 99;
+      position: absolute; z-index: 99;
       color:$white;
+      
+      &::after{ // 作為 header fixed 時的底色
+        content: ''; position: absolute;z-index: -1;
+        top: 0; left: 0;bottom: 100%; width: 100vw;
+        background-color: $primary; 
+
+        transition:bottom .35s ease-out;
+      }      
       a{color:$white;}
     }
     .sidebarCtrl, .searchCtrl {
       --tinge : #{$white};
     }
-  }
 
-
-  // 固定版頭
-  // --------------------------------------------------------------- //
-  &.fixed{
-    // z-index: 920;
-    h1, .sidebarCtrl, .searchCtrl { position: fixed; }
-    .sidebarCtrl, .searchCtrl{--tinge : #{$white};}
-    h1{ color: $white;
-      a{color: $white;}
-    }
-
-    &::after{
-      height: 88px;
-      box-shadow: rgb(0 0 0 / .5) 0 3px 12px;
+    &.fixed{
+      position: relative;
+      // 因為首頁的 header 內有大 banner
+      // 不能直接把 header 設為 position: fixed
+      h1{
+        position: fixed;
+        &::after{ bottom: 0;box-shadow: rgb(0 0 0 / .5) 0 3px 12px;}
+      }
     }
   }
-  
 
   @media screen and (min-width: $wwNormal){
-
-    margin: 0 auto; padding:8px 3% 22px;width: 100%;
+    margin: 0 auto; padding:8px 3% 22px;
     background-color: $white;
+    
+    transition:box-shadow .5s;
 
     h1{
       float: left;
-      position: relative;top: auto;bottom: auto;left: auto;
+      position: relative; bottom: auto;left: auto;
       width: 6.6em; line-height: 1.35;
       margin: 10px 0 0; padding: 5px 0 0 90px; 
       white-space: nowrap;
@@ -94,12 +114,13 @@
       }
     }
 
-    // 固定版頭
     // --------------------------------------------------------------- //
-      &.fixed {
-      position: fixed; top: 0;
+    // 固定版頭
+    &.fixed {
+      position: fixed; 
       box-shadow: rgb(0 0 0 / .25) 0 0 16px;
 
+      animation: fixHeaderShow 1s 1;
       h1{
         position: relative; color: $primary;
         a{color: $primary;}
@@ -109,13 +130,10 @@
 
 
     // --------------------------------------------------------------- //
-    // --------------------------------------------------------------- //
-
-
     // 首頁的版頭
-    // --------------------------------------------------------------- //
     &.mp{
       padding: 0 0 30px;
+
       h1{
         float: none;
         position: absolute; top: calc(42vw - 90px);  left:calc(50% - 3.3em);
@@ -126,6 +144,7 @@
           position: static; display: block; margin: 0 auto 20px;
           width: 160px; height: 160px;
         }
+        &::after{display: none;}
       }
 
       // 首頁固定版頭
@@ -138,7 +157,7 @@
   
         .bigBanner{ position: absolute; height: 0;width: 100vw; overflow: hidden; }
   
-        animation: fixHeaderShow 1s  1;
+        animation: fixHeaderShow .8s ease-out 1;
   
         h1 {
           float: left;

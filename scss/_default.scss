@@ -7,6 +7,8 @@ body{
   background:$mainBgc;
   color: $fontColor;
 
+  // transition: top .4s;
+
   *{ box-sizing: border-box; outline: none;}
 
   &.noScroll{ overflow-y: hidden;}
@@ -34,6 +36,7 @@ time{ letter-spacing: 0; }
         content: ''; display: block; clear: both;
       }
     }
+    
     *::selection{
       color: $fontInvert; background-color: $primary;
     }

@@ -138,31 +138,45 @@ $(function(){
 
 
 
-
-
   // --------------------------------------------------------------- //
   // --------------------------------------------------------------- //
   // --------------------------------------------------------------- //
   // 固定版頭 
   // --------------------------------------------------------------- //
   var fixHeadThreshold;
-  var hh = _webHeader.outerHeight();
+  var hh;
   if ( ww >= wwNormal) {
     // fixHeadThreshold =  hh - _menu.outerHeight();
+    hh = _webHeader.outerHeight();
     fixHeadThreshold =  hh;
   } else {
+    hh = _webHeader.outerHeight();
     fixHeadThreshold = 0;
   }
+
+
   _window.scroll(function(){
     if (_window.scrollTop() > fixHeadThreshold ) {
       _webHeader.addClass('fixed');
-      if ( ww >= wwNormal) {
+      if ( ! _webHeader.hasClass('mp') || ww >= wwNormal ) {
         _body.offset({top: hh});
       }
-    } else {
+    } else if (_webHeader.hasClass('mp')) {
+      // _webHeader.css({
+      //   'animation': '1s ease-in 1 fixHeaderShow reverse',
+      // })
       _webHeader.removeClass('fixed');
       _body.removeAttr('style');
     }
+    if (_window.scrollTop() == 0) {
+      _webHeader.removeClass('fixed');
+      _body.removeAttr('style');
+    }
+    // else {
+    //   _webHeader.removeClass('fixed');
+    //   _body.removeAttr('style');
+    // }
+
 
     // goTop button 顯示、隱藏
     if (_window.scrollTop() > 200) {
@@ -407,7 +421,9 @@ $(function(){
         hh = _webHeader.outerHeight();
         fixHeadThreshold = 0;
         _body.removeAttr('style');
-        _window.trigger('scroll');
+        if ( ! _webHeader.hasClass('mp') ) {
+          _window.trigger('scroll');
+        }
       }
       ww = wwNew;
     }, 200);
@@ -435,44 +451,42 @@ $(function(){
     zIndex:8
   });
 
-    // 研究歷程 與 活動記錄
-    $('.logbook').find('.flow').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplaySpeed: 5000,
-      speed: 800,
-      autoplay: true,
-      arrows: true,
-      dots: true,
-      fade: false,
-      infinite: true,
+  // 研究歷程 與 活動記錄
+  $('.logbook').find('.flow').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplaySpeed: 5000,
+    speed: 800,
+    autoplay: true,
+    arrows: true,
+    dots: true,
+    fade: false,
+    infinite: true,
 
-      mobileFirst: true,
-      responsive: [
-        {
-          breakpoint: 700,
-          settings: {
-            vertical: false,
-            slidesToShow: 2,
-            autoplay: true,
-            arrows: true,
-          }
-        },
-        {
-          breakpoint: 1000,
-          settings: {
-            vertical: false,
-            slidesToShow: 3,
-            autoplay: true,
-            arrows: true,
-          }
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 700,
+        settings: {
+          vertical: false,
+          slidesToShow: 2,
+          autoplay: true,
+          arrows: true,
         }
-      ]
-  
-    });
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          vertical: false,
+          slidesToShow: 3,
+          autoplay: true,
+          arrows: true,
+        }
+      }
+    ]
+  });
 
   // -------- 外掛套件 slick 參數設定 END
-
 
 
 
