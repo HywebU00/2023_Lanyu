@@ -32,10 +32,10 @@
 // 內頁標題 
 // --------------------------------------------------------------- //
 .pageHeader{
-  @extend %primSecWidth; margin: 0 auto; padding: 10px 0 5px;
-  color: $fontColor; font-size: 1.4em; 
+  @extend %primSecWidth; margin: 0 auto; padding: 20px 0 5px;
+  color: $fontColor; 
   h2{
-    padding: 0; margin: 0 ;line-height: 1.5;
+    padding: 0; margin: 0 ;line-height: 1.5;font-size: 2em; 
   }
 
   @media screen and (min-width: $wwNormal){
@@ -80,7 +80,6 @@
           color: $fontColor;
           &::after{
             box-shadow: $primary 0 0 0 3px;
-            // background-color: $primary;
           }
         }
       }
@@ -96,7 +95,6 @@
         background-image: url(../images/icon_share.png);
         background-size: 24px;
       }
-
     }
   }
 }
