@@ -70,7 +70,7 @@
   &.stickyHead {
     thead{ 
       position: sticky; top: 120px; z-index: 9;
-      background-color: rgb(240 245 245 );
+      background-color: #f0f5f5;
       box-shadow: $borderColorDark 0 1px 0;
       tr{ border-bottom: none;}
     }
@@ -138,8 +138,6 @@
         }
       }
     }
-
-
   }
 
 
@@ -159,7 +157,7 @@
           padding: .5em 12px .4em; margin: 0 0 16px;
           border-radius: 8px; border: none;
           background-color: $white;
-          box-shadow: $shadowColor 0 0 8px;
+          box-shadow: $shadowColor 0 1px 4px;
         }
         tbody tr:last-child{border-bottom: 1px solid $borderColor;}
         th, td{

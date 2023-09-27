@@ -3,7 +3,7 @@
   --active: #{$primary};
   --invert: #fff;
 
-  margin: 3em 0 0; padding: 10px 0;
+  @extend %primSecWidth; margin: 3em auto 0; padding: 10px 0;
   text-align: center;font-size: 1em; line-height: 1.5;
   letter-spacing: 0;
   form{ display: inline-block;}
@@ -35,17 +35,38 @@
     margin:8px auto; padding: 3px; 
     &>li{ 
       margin: 3px; flex: 0 0 auto;
+
+      // ----
+      margin: 3px -1px 3px 0;
+      // overflow: hidden;
+      // background-color: #fff;
+      background-color: $white;
+      border: 1px solid $borderColor;
+      // box-shadow: $borderColor 0 0 0 1px;
+
+
+      &:hover{ border-color: $primary; z-index: 19;}
+
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+        overflow: hidden;
+      }
+      &:last-child{ border-radius: 0 5px 5px 0;}
+
       a{ 
-        display: block; min-width: 2.4em; height: 2.4em; line-height: 2.4em;
-        color: $fontColor; border-radius: 4px;
+        display: block; min-width: 46px;height: 46px; line-height: 46px;
+        position: relative; bottom: 0;
+        padding: 0 5px;
+        color: $fontColor; 
         transition:box-shadow .2s, background .2s;
-        &:hover, &:focus{ box-shadow: var(--active) 0 0 0 1px;}
+        &:hover, &:focus{ box-shadow: var(--active) 0 0 0 2px inset;}
       }
       &.active{
+        z-index: 29;
         a{
           color: $fontInvert; background-color: var(--active);
           box-shadow: var(--active) 0 0 0 1px;
-          &:hover, &:focus{ box-shadow:$white 0 0 0 1px, var(--active) 0 0 0 3px;}
+          &:hover, &:focus{ box-shadow:$white 0 0 0 1px, var(--active) 0 0 0 4px;}
         }
       }
 
@@ -53,8 +74,8 @@
       &.first, &.prev, &.next, &.last{  
         text-indent: -20em;
         a{ 
-          position: relative; overflow: hidden;
-          background-color: lighten($assistant1, 20%);
+          position: relative; overflow: hidden; padding: 0;
+          // background-color: lighten($assistant1, 20%);
           &::after{
             content: ''; position: absolute; top: 50%;
             width:8px; height:8px; margin-top: -5px;
@@ -82,8 +103,12 @@
         a::after{left: 18px;}
       }
       &.next, &.last{
-        a{ transform: rotate(180deg);}
+        a{ 
+          transform: rotate(180deg);
+        }
       }
+
+      // &.next a::after{transform: rotate(225deg) translate(2px, -2px);}
     }
   }
 
