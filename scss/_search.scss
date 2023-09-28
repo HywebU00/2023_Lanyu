@@ -5,11 +5,11 @@
   --inputHeight: 3em;
 
   display: none; margin-left: -100vw;
-  position: fixed; top: 88px; left: 0; z-index: 930;
+  position: fixed; top: 84px; left: 0; z-index: 930;
   width: 100vw;
   padding: 18px 4vw;
   font-size: 1.2rem;
-  background-color: rgb(0 0 0 /.7);
+  background-color: rgb(0 0 0 /.8);
   transition:margin-left 500ms;
 
   &.reveal { margin-left: 0;}
