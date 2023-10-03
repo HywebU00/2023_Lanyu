@@ -12,23 +12,26 @@
       margin: 0 0 8px; padding: 0;
       p{ 
         flex: 1 1 auto;
-        margin:0; font-size: 1.125em;
+        margin:0; padding: 12px 0 4px; font-size: 1.125em;
       }
       time{
         position: relative;
-        flex: 0 0 5.5rem; padding:0 3px; margin:0 12px 0 0;
+        flex: 0 0 6rem; padding:4px 0 6px; margin:0 12px 0 0;
         font-size: 1.3em; font-weight: bold;line-height: 1.15;
         white-space: nowrap; text-align: center;
         font-family: Georgia, 'Times New Roman', Times, serif;
+        transition: .25s;
+
+        display: flex; flex-flow: column wrap; justify-content: center;
+
         .year{
           display: block; font-size: .8em; font-weight: normal;
-          // margin-left: 5px;
         }
       }
 
       a{
-        display: flex; align-items: center;
-        position: relative; padding: .5em 5px .2em 0;
+        display: flex; align-content: center;
+        position: relative; padding: .5em 5px .2em 0; padding: 0 5px 0 0;
         text-decoration: none; color: $fontColor; 
         border: 1px solid $borderColorLight;
         border-top-color: transparent;
@@ -37,18 +40,16 @@
         transition: .2s;
         
         &::before{
-          content: ''; position: absolute;  left: 0; bottom: -1px; height: 2px;
-          width: 5.8rem;
+          content: ''; position: absolute;  left: 0; bottom: -1px; z-index: 9;
+          width: 6rem; height: 2px;
           background-color: $borderColorDark;
-          transition: .3s;
         }
         &:hover, &:focus{ 
           border-color: $primary;
           &::before{
-            height: 100%; bottom: 0;
-            background-color: $primary;
+            background-color: $assistant2; bottom:0; height: 3px; 
           }
-          time{color: $white; }
+          time{ background-color: $primary; color: $white;}
         }
       }
     }

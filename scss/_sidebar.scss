@@ -1,0 +1,94 @@
+// 行動版側欄
+// --------------------------------------------------------------- //
+.sidebar{
+  position: fixed; z-index: 930;
+  width: $sideBarWidth; 
+  margin-right:$sideBarWidth * (-1);
+  top: 0; bottom: 0; right: 0; overflow: auto;
+  background: $primary; color: $fontInvert;
+  transition: .5s;
+
+  // .menu { display: none;}
+
+  &.reveal{
+    margin-right:0;
+    .menu { display: block;}
+  }
+
+
+  // 行動版側欄主選單
+  .menu{
+    &>ul{
+      font-size: 1.2rem; line-height: 1.2;
+      li{
+        a{
+          position: relative; color: $fontInvert; text-decoration: none;
+          transition: .2s;
+          &:hover, &:focus{
+            background-color: rgba(0,0,0,.15);
+          }
+        }
+        &.hasChild{
+          &>a{
+            padding-right: 36px;
+            &::after{
+              content: ''; position: absolute; right: 15px; top: 1em;
+              width: 8px; height: 8px; border: 2px solid $white;
+              transform: rotate(45deg); border-left: none; border-top: none;
+              transition: .2s;
+            }
+            &:hover, &:focus{
+              &::after{ border-color: $assistant2;}
+            }
+          }
+          &.closeIt>a{
+            &::after{ transform: rotate(225deg); top: 1.2em; }
+          }
+        }
+
+        // 第二層
+        ul{ 
+          display: none;
+          font-size: 1rem; border-top: 1px solid rgba(255,255,255,.2);
+          li{
+            a{
+              padding: .8em .8em .7em 38px;
+              &::before{
+                content: ''; position: absolute; left: 1.3em; top: 1.4em;
+                width: 6px; height: 2px; background-color: $fontInvert;
+                transition: .2s;
+              }
+              &:hover, &:focus {
+                &::before{ background-color: $assistant2; height: 6px; margin-top: -3px;}
+              }
+            }
+          }
+          // 第三層和其之後
+          ul{ 
+            margin-left: 32px; border-top: none;
+            a{ padding-left: 22px;
+              &::before {left: 7px; height: 1px;}
+            }
+          }
+        }
+      }
+
+      // 第一層選單項目
+      &>li{
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        &>a{
+          position: relative;
+          padding: .8em 16px .7em; transition: .2s;
+        }
+      }
+    }
+
+  }
+
+
+
+  @media screen and (min-width: $wwNormal){
+    display: none;
+  }
+
+}

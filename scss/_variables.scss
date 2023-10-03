@@ -26,28 +26,30 @@ $wwMaximum: 1440px;
 
 
 // ---------- 顏色變數 ----------- //
-$primary: #2D7172;
-$assistant1: #7db3b4;
+// $primary: #2D7172;
+// $assistant1: #7db3b4;
+$primary: #008297;
+$assistant1: #4ab2c2;
 $assistant2: #FCD24D;
 $fontColor: #151515;
 $fontColorLight: #6c7070;
 $fontInvert: #fff;
-$focus: #2D7172;
-$hover: #f1f4f2;
-$linkColor: #069;
+$focus: $primary;
+$hover: #fff7cf;
+$linkColor: #005f91;
 
 $borderColor: #c1c4c6;
 $borderColorLight: #d2d2d2;
 $borderColorDark:#434242;
 
 $btnBg1: $primary;
-$btnBg2: #01425c;
+$btnBg2: #005f91;
 
 $white: #fff;
 $black: #000;
 $gray: #9db0b0;
-$grayLight: #edf0e5;
-$grayDark: #515656;
+$grayLight: #e2eced;
+$grayDark: #545a5a;
 $mainBgc:#f1f4f9;
 
 $shadowColor: rgba(85, 96, 97, .5);

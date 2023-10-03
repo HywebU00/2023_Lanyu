@@ -9,7 +9,9 @@
   width: 100vw;
   padding: 18px 4vw;
   font-size: 1.2rem;
-  background-color: rgb(0 0 0 /.8);
+  // background-color: rgb(0 0 0 /.8);
+  background-color: transparentize($primary, .2);
+  backdrop-filter: blur(6px);
   transition:margin-left 500ms;
 
   &.reveal { margin-left: 0;}
@@ -32,7 +34,6 @@
       color: var(--tint);
       opacity: 1; /* Firefox */
     }
-    // &:hover, &:focus{ box-shadow: $white 0 0 0 2px, $primary 0 0 0 4px;}
   }
 
   input[type="submit"], input[type="button"], button:not(.skip) {
@@ -47,6 +48,7 @@
     &:hover, &:focus{
       background-color: $primary;
     }
+    &:focus{box-shadow: var(--tint) 0 0 0 2px inset;}
   }
 
   @media screen and (min-width: $wwNormal){
@@ -82,22 +84,6 @@
 // --------------------------------------------------------------- //
 .webHeader.mp{
 
-  // .search{
-  //   --tint: #{$white};
-
-  //   position: absolute; margin: 0;padding: 0;
-  //   left: auto; top: 55px; right: 3vw;  width: 280px;
-  //   background: none;
-  
-  //   input[type="text"]{
-  //     padding:0 2.5em 0 1em;
-  //   }
-  //   input[type="submit"], input[type="button"], button:not(.skip){
-  //     background-color: transparent;
-  //     &:hover, &:focus{background-color: $assistant1; }
-  //   }
-  // }
-
   @media screen and (min-width: $wwNormal){
 
     &:not(.fixed){
@@ -110,10 +96,12 @@
       
         input[type="text"]{
           padding:0 2.5em 0 1em;
+          &:focus{ background-color: transparentize($primary, .2);}
         }
         input[type="submit"], input[type="button"], button:not(.skip){
           background-color: transparent;
-          &:hover, &:focus{background-color: $assistant1; }
+          &:hover, &:focus{
+            background-color: $primary; box-shadow: var(--tint) 0 0 0 2px inset; }
         }
       }
     }

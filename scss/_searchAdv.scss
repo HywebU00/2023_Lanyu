@@ -1,13 +1,12 @@
 // 進階查詢＋查詢結果
 
-// -----------------------------＊模組＊-------------------------- //
-// --------------------------------------------------------------- //
+// --------------------------＊模組＊--------------------------- //
 
-// --------------------------------------------------------------- //
 // 【查詢】、【清除】、【送出】等按鈕群
+// ------------------------------------------------------------- //
 .btnDv{
   text-align:center; padding-top:10px;
-
+  
   input, button{ 
     height: 2.8em; padding: 0 1.5em; margin: 3px;
     font-size: inherit; border-radius: 2em;
@@ -27,8 +26,8 @@
   }
 }
 
-// --------------------------------------------------------------- //
 // 日期區間
+// -------------------------------------------------------------- //
 .duration{
   position: relative;
   display: flex; justify-content: space-between;
@@ -44,10 +43,12 @@
   }
 }
 
+// ----------------------------＊＊＊---------------------------- //
 
-// --------------------------------------------------------------- //
-// --------------------------------------------------------------- //
+
+
 // 進階查詢
+// --------------------------------------------------------------- //
 .searchAdv{
   @extend %primSecWidth; margin-bottom: 40px; padding: 25px 2vw;
   border-radius: 16px;
@@ -61,7 +62,7 @@
     background-color: $white; color: $fontColor;
     transition: .2s;
     &:hover, &:focus {
-      box-shadow: $assistant1 0 0 0 2px;
+      box-shadow: $primary 0 0 0 2px;
     }
   }
   input {padding: 0 .5em; }
@@ -85,7 +86,6 @@
     &.first{
       &>select{ flex: 0 1 5.5em; background-color: $white;}
       &>input{ flex: 1 1 50%;}
-     
     }
   }
 
@@ -111,9 +111,8 @@
 }
 
 
-// --------------------------------------------------------------- //
-// --------------------------------------------------------------- //
 // 查詢結果
+// --------------------------------------------------------------- //
 .searchList{
   @extend %primSecWidth; margin-top: 0; padding: 5px;
   border-radius: 16px; background-color: $white;
@@ -136,7 +135,6 @@
       list-style: none; margin: 0 0 20px; padding: 0 0 8px;
       line-height: 1.5; font-size: 1rem; color: $fontColorLight;
       border-bottom: 1px dotted $gray;
-      // box-shadow: $gray 0 0 0 1px inset;
       li{ 
         display: inline-block; margin:0 .9em 0 0;
         &:last-child{margin-right: 0;}
@@ -151,8 +149,8 @@
         height: 2.2em; padding-left: .5em;margin-left: 5px;
         border-radius: 4px;
         background-position: top .65em right 4px;
-        background-color: lighten($assistant1, 15%);
-        // box-shadow: $assistant1 0 0 0 1px;
+        // background-color: $grayLight;
+        box-shadow: $assistant1 0 0 0 2px;
       }
     }
   }
@@ -171,7 +169,7 @@
         transition: .2s;
         &:hover, &:focus{
           background-color: $hover;
-          .title{color: $primary; text-decoration: underline;}
+          .title{text-decoration: underline;}
         }
       }
       .title{

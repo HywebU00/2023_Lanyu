@@ -59,9 +59,9 @@ time{
 // 查詢圖示 + 行動版側欄開關 
 // --------------------------------------------------------------- //
 .searchCtrl, .sidebarCtrl{
-  --hover: #{$assistant1};
+  --hover: #{$assistant2};
   
-  width: 44px; height: 44px; margin: 0; 
+  width: 48px; height: 48px; margin: 0; 
   background-color: transparent;border-radius: 0;
   border: none; box-shadow: none; outline: none;
   text-indent: -20em; overflow: hidden;
@@ -86,19 +86,6 @@ time{
   transition: background-color .2s, box-shadow .2s, right .2s;
   @extend %searchIcon;
 
-  // &::before, &::after{
-  //   content: ''; position: absolute;
-  // }
-  // &::before{
-  //   left: calc(50% - 14px); top: calc(50% - 14px);
-  //   width: 15px; height: 15px; border: 3px solid var(--tinge); border-radius: 50%;
-  // }
-  // &::after{
-  //   width: 14px; height: 3px; background-color: var(--tinge); border-radius: 2px;
-  //   left: calc(50% + 2px); top: calc(50% + 7px);
-  //   transform: rotate(45deg);
-  // }
-
   &.closeIt{
     &::before, &::after {
       width: 28px; height: 4px; top: calc(50% - 2px); left: calc(50% - 14px);
@@ -114,7 +101,6 @@ time{
   }
 
   @media screen and (min-width: $wwNormal){
-    // --tinge : #fff;
     
     &:hover{
       background-color: $primary;
@@ -123,7 +109,6 @@ time{
     &:focus{
       background-color: $primary;
       box-shadow: $focus 0 0 0 3px;
-
     }
   }
 }
@@ -135,12 +120,12 @@ time{
 
   transition: .4s;
   &::before, &::after{
-    content: ''; position: absolute; left: 8px;height: 3px;
+    content: ''; position: absolute; left: 10px;height: 3px;
     border-radius: 2px;background: var(--tinge); 
     transition: .2s;
   }
   &::before{
-    top: 10px; width: 28px; 
+    top: 12px; width: 28px; 
     box-shadow: var(--tinge) 0 10px 0, var(--tinge) 0 20px 0;
   }
 
@@ -167,7 +152,7 @@ time{
 .sidebarMask {
   display: none;z-index: 910;
   position: fixed;left: 0;right: 0;top: 0;bottom: 0;
-  background-color: rgba(200,200,200,.75);
+  background-color: rgba(100,100,100,.75);
 }
 
 // MORE
@@ -218,19 +203,20 @@ button.skip{
   overflow: hidden;
   font-size: .85rem; text-transform: uppercase; font-weight: bold;
   border: none; border-radius: 50%; 
-  background: $primary; color: $fontInvert;
-  box-shadow:$assistant1 0 0 0 2px;
+  background: $assistant2; color: $primary;
+  box-shadow:$assistant1 0 0 0 0;
   transition:background .2s, box-shadow .2s, bottom 1.2s;
 
   &:hover, &:focus {
     box-shadow:$assistant1 0 0 0 4px;
-    &::before{ top: 11px;}
+    background-color: $primary; color: $white;
+    &::before{ top: 10px; border-color: $white;}
   }
 
   &::before{
     content: ''; position: absolute;
     width: 10px; height: 10px; left: 18px; top: 13px;
-    border: 2px solid $fontInvert;  border-bottom: none; border-right: none;
+    border: 2px solid $primary;  border-bottom: none; border-right: none;
     transform: rotate(45deg);
     transition: .1s;
   }

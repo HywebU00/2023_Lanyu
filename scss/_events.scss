@@ -35,12 +35,13 @@
       }
     }
   }
+
   .brief{
     padding:60px 20px 20px;line-height: 1.8;
     border-radius: 0 8px 20px 20px;
     background-color: $white;
     a{
-      color: $primary;
+      color: $linkColor;
       &:hover, &:focus{text-decoration: underline;}
     }
 

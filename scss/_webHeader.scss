@@ -1,7 +1,5 @@
 .webHeader{
-  position: relative; z-index: 920;
-  // padding: 15px 0 10px 20px;
-  padding: 0;
+  position: relative; z-index: 920; padding: 0;
 
   &::after{ // 作為 fixed 時的底色
     content: '';
@@ -30,7 +28,7 @@
 
   // 查詢與側欄開關 button
   .sidebarCtrl, .searchCtrl {
-    position: absolute; top: 24px; z-index: 99;
+    position: absolute; top: 18px; z-index: 99;
   }
   .sidebarCtrl{ 
     right: 70px;
@@ -38,13 +36,16 @@
   }
   .searchCtrl { right: 20px; }
 
-  // --------------------------------------------------------------- //
   // 固定版頭
+  // --------------------------------------------------------------- //
   &.fixed{
     position: fixed; top: 0; left: 0; right: 0;
     .sidebarCtrl, .searchCtrl {
       --tinge : #{$white};
+
       position: fixed; 
+      &:hover, &:focus{--tinge : #{$primary};}
+      &.closeIt{--tinge : #{$primary};}
     }
     h1{ 
       color: $white;
@@ -56,8 +57,8 @@
     }
   }
   
-  // --------------------------------------------------------------- //
   // 首頁版頭
+  // --------------------------------------------------------------- //
   &.mp{
     padding: 0;
     &::after{ display: none; }
@@ -75,8 +76,10 @@
       }      
       a{color:$white;}
     }
+
     .sidebarCtrl, .searchCtrl {
       --tinge : #{$white};
+      &:hover, &:focus, &.closeIt { --tinge : #{$primary}; }
     }
 
     &.fixed{
@@ -182,9 +185,6 @@
       h1{ top: calc($wwMaximum*.42 - 90px); }
       &.fixed h1{ margin-left: calc(50vw - $wwMaximum*.5); }
     }
-
-
-
   }
 
 }

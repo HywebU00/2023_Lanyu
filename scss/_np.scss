@@ -22,7 +22,7 @@
         transition: .3s;
         &::before{
           content: ''; position: absolute; left: 15px; top: calc(1em + 4px);
-          width: 10px; height: 10px; border: 3px solid $white;
+          width: 10px; height: 10px; border: 3px solid $assistant2;
           transform: rotate(45deg); border-left: none; border-bottom: none;
 
           transition: .2s;

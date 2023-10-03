@@ -30,20 +30,14 @@
   }
 
   .page{ 
-    list-style: none; line-height: 1; letter-spacing: 0; font-weight: normal;
+    list-style: none; line-height: 1; letter-spacing: 0;
     display: flex; flex-flow: row wrap; justify-content: center;
     margin:8px auto; padding: 3px; 
     &>li{ 
-      margin: 3px; flex: 0 0 auto;
-
-      // ----
+      flex: 0 0 auto;
       margin: 3px -1px 3px 0;
-      // overflow: hidden;
-      // background-color: #fff;
       background-color: $white;
       border: 1px solid $borderColor;
-      // box-shadow: $borderColor 0 0 0 1px;
-
 
       &:hover{ border-color: $primary; z-index: 19;}
 
@@ -62,7 +56,7 @@
         &:hover, &:focus{ box-shadow: var(--active) 0 0 0 2px inset;}
       }
       &.active{
-        z-index: 29;
+        z-index: 29; font-weight: normal;
         a{
           color: $fontInvert; background-color: var(--active);
           box-shadow: var(--active) 0 0 0 1px;

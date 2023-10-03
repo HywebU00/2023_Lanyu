@@ -17,6 +17,8 @@
       font-size: inherit; font-family: Georgia, 'Times New Roman', Times, serif;
       letter-spacing: 0;
       background-color: var(--tabBg); color: var(--color);
+      &:hover{ color: $assistant2;}
+
       &:last-child{margin-right: 0;}
 
       .year{ display: none;}
@@ -34,6 +36,7 @@
         margin-right: 3px; margin-left: 1px;
         transform: translateY(-3px);
         box-shadow: var(--color) 0 0 0 2px;
+        &:hover{ color: var(--color);}
 
         &:first-child{margin-left: 2px;}
         &:last-child{margin-right: 2px;}
