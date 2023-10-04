@@ -271,18 +271,17 @@ button.skip{
 // 內頁 slick 點點、箭頭樣式
 .flow{
   .slick-dots{
-    font-size: 1em;
+    position: relative;font-size: 1em; 
     li{
       position: relative; padding-bottom: 7px;
       &::after{
         position: absolute; left: calc(50% - 3px); bottom: 0;
-        content: ''; width: 1px; height: 1px; border-radius: 3px;
+        content: ''; width: 6px; height: 6px; border-radius: 3px;
         transition:.3s;
       }
-      &.slick-active{
-        &:after{background-color: $primary; width: 6px; height: 6px;}
+      &.slick-active {
+        &::after{background-color: $primary;}
       }
-
       button{color: $fontColorLight;}
     }
   }

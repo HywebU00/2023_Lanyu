@@ -8,7 +8,10 @@
     font-size: 1.5em; line-height: 1.2; font-weight: normal;
   }
 
-  .flow{position: relative;padding-bottom: 6px;}
+  .flow{
+    position: relative;padding-bottom: 6px;
+    .slick-dots{ margin: 0 60px;}
+  }
 
   .oneDay{
     position: relative;
@@ -75,6 +78,16 @@
         img{height: calc(($mobileWidth*.5 - 46px)*.75);}
       }
     }
+
+    // .flow{
+    //   .slick-dots{
+    //     li.slick-active{
+    //       & + li{
+    //         &:after{background-color: $primary;}
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   @media screen and (min-width: $wwNormal){
@@ -85,6 +98,16 @@
         img{height: calc(($normalWidth/3 - 46px)*.75);}
       }
     }
+
+    // .flow{
+    //   .slick-dots{
+    //     li.slick-active {
+    //       &+li, &+li+li {
+    //         &:after{background-color: $primary;}
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   @media screen and (min-width: $wwMaximum){

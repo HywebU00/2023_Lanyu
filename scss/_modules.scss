@@ -185,7 +185,7 @@
 .preface{
   @extend %primSecWidth;
   padding:1.8em 2em; line-height: 2;
-  background: #fffee5; border-radius: 16px;
+  background: $primary; color: $white;
   box-shadow: $shadowColor 0 2px 6px;
   p{
     margin: 0;
@@ -210,7 +210,7 @@
     flex: 1 1 70%;
     height: var(--inputHeight); border-radius: 2em;
     padding: 0 1em; margin: 0 8px; 
-    box-shadow: none; background-color: rgb(255 255 255 / .7);
+    box-shadow: none; background-color: $white;
     color: $fontColor;
     transition: .2s;
     &::placeholder {
