@@ -33,13 +33,8 @@
       }
   
       .more{
-        margin-top: 8px;
-        a{
-          height: 2em; line-height: 1.5;
-          color: $fontInvert; padding-right: 0;
-          border-bottom: 3px solid $assistant2;
-          &::after{ display: none;}
-        }
+        margin-top: 14px; margin-left: -10px;
+        a{ color: $fontInvert;}
       }
     }
   }
@@ -131,6 +126,7 @@
         }
       }
     }
+
   }
 
   @media screen and (min-width: $wwMaximum){

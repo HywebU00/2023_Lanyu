@@ -159,26 +159,37 @@ time{
 // --------------------------------------------------------------- //
 .more{
   font-size: 1.35; font-family: 'Times New Roman', Times, serif;
-  line-height: 2; height: 2em; letter-spacing: .06em;
   a{
     display: inline-block; position: relative;
+    line-height: 36px; height: 36px; letter-spacing: .05em;
     color: $primary;text-decoration: none;
-    padding: 0 36px 0 0;
-    transition: .3s;
+    padding: 0 60px 0 12px; border-radius: 1em;
+    transition: .2s;
     &::after{
-      content: ''; position: absolute; right: 10px; top: calc(1em - 2px);
-      width: 4px; height: 4px; border-radius: 50%;
-      background-color: $primary;
-      box-shadow: $primary -7px 0, $primary -14px 0;
-      transition: right .3s, box-shadow .6s;
+      content: ''; position: absolute; right: 0; top: 0;
+      width: 50px; height: 36px;
+      background: url(../images/moreBg.png) no-repeat 0 0;
+      background-size: auto 100%;
     }
     &:hover, &:focus{
-      box-shadow: $primary 0 0 0 2px;
-      &::after{
-        right: 26px;
-        box-shadow: $primary 7px 0, $primary 14px 0;
-      }
+      background-color: $primary; color: $fontInvert;
+      box-shadow: $primary 0 0 0 4px;
+
     }
+    // &::after{
+    //   content: ''; position: absolute; right: 10px; top: calc(1em - 2px);
+    //   width: 4px; height: 4px; border-radius: 50%;
+    //   background-color: $primary;
+    //   box-shadow: $primary -7px 0, $primary -14px 0;
+    //   transition: right .3s, box-shadow .6s;
+    // }
+    // &:hover, &:focus{
+    //   box-shadow: $primary 0 0 0 2px;
+    //   &::after{
+    //     right: 26px;
+    //     box-shadow: $primary 7px 0, $primary 14px 0;
+    //   }
+    // }
   }
 
 }

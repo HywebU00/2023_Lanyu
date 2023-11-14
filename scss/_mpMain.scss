@@ -16,14 +16,11 @@
       background-repeat: no-repeat;
       background-position: center 0;
       background-size: contain;
-      // outline: 1px solid red;
     }
 
   }
 
-  .more{
-    a{padding-left: 16px; margin-left: -16px; border-radius: 1em;}
-  }
+  .more{ margin-left: -10px; }
   @media screen and (min-width: $wwNormal){
     float: left; width: calc(85% - 400px); 
     margin: 0 0 0 8%;
