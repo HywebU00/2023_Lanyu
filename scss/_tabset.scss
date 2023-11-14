@@ -65,7 +65,7 @@
     &:nth-of-type(1){display: block;}
 
     img{ 
-      display: block; 
+      display: block;  clear: both;
       margin: 20px auto 40px; padding: 5px; 
       width: auto; max-width: 100%; height: auto;
       background-color: #fff;
