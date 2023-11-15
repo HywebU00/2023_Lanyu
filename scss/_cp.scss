@@ -5,7 +5,6 @@
   background-color: $white;
   box-shadow: $shadowColor 0 0 12px;
 
-
   blockquote{
     position: relative;
     padding: 30px 48px 40px 66px; margin:2em 0 1em 8%;
@@ -45,7 +44,7 @@
 
   // 內文標題
   h3, h4, h5, h6{
-    line-height: 1.6;
+    line-height: 1.6; clear: both;
     margin: 3rem 0 .4rem;font-weight: normal;
     & + p{margin-top: .5rem;}
   }
@@ -53,6 +52,8 @@
   h4{ font-size: 1.25em;}
   h5{ font-size: 1.15em;}
   h6{ font-size: 1rem;}
+
+  hr{ clear: both;}
 
   figure{
     border: 1px solid $borderColor; padding: 6px;
@@ -64,9 +65,14 @@
     }
   }
 
-  &>img{
-    display: block; margin: 0 auto 2em; width: 100%; max-width: 1024px;
+  // &>img{
+  //   display: block; margin: 0 auto 2em; width: 100%; max-width: 1024px;
+  // }
+  img{ 
+    display: block; max-width: 100%; height: auto; clear: both;
+    &[style*="left"]{ margin-right: 12px;}
   }
+
 
   // 文章內表格樣式
   table{
@@ -122,9 +128,10 @@
         width: 50%; margin: 1em 1.2em .5em 0;
       }
     }
-    &>img{
-      width: auto; clear: both;
-    }
+
+    // &>img{
+    //   width: auto; clear: both;
+    // }
 
     blockquote{ margin-left: 20%;}
   }
